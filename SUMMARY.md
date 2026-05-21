@@ -7,12 +7,15 @@
 * [Pipeline Overview](01_introduction/pipeline_overview.md)
 * [Scope and Disclaimer](01_introduction/scope_and_disclaimer.md)
 
-## Theory
+## Background
 
-* [Structural Principles](02_theory/structural_principles.md)
-* [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md)
-* [Discrete Element Method (DEM)](02_theory/discrete_element_method.md)
+
+
+* [Structural System](02_theory/structural_principles.md) (Daniele)
+* [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md) (Baraa/Ale/Ricardo)
+* [Discrete Element Method (DEM)](02_theory/discrete_element_method.md) (Baraa)
 * [The CARBCOMN Voussoir](02_theory/carbcomn_voussoir.md)
+* [COMPAS Framework](02_theory/carbcomn_voussoir.md)
 
 ## Pipeline Reference
 
