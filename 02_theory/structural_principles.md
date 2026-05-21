@@ -47,3 +47,14 @@ This is the domain of the **Discrete Element Method (DEM)**, described in the [D
 | Voussoir | A wedge-shaped block forming part of an arch or vault; the elementary unit of the CARBCOMN floor |
 
 > **References:** <!-- [PLACEHOLDER: Add key references — Block & Ochsendorf 2007, Heyman 1966, etc.] -->
+
+---
+
+## References
+
+<!-- Add references below using the format:
+[N] Author, A., Author, B. (Year). *Title of paper or book*. Journal / Publisher, Volume(Issue), Pages. DOI/URL
+Example:
+[1] Block, P., Ochsendorf, J. (2007). *Thrust network analysis: A new methodology for three-dimensional equilibrium*. Journal of the IASS, 48(3), 167–173.
+-->
+
