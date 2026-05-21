@@ -9,7 +9,7 @@
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/blockresearchgroup/carbcomn.git
+git clone https://github.com/BlockResearchGroup/CARBCOMN.core.git
 cd carbcomn.core
 ```
 
