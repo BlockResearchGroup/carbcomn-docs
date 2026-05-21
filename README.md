@@ -1,11 +1,10 @@
 # CARBCOMN.core — Computational Pipeline Documentation
 
-**Deliverable D2.1 | EU Horizon Pathfinder Challenge 2023 — CARBCOMN**
 **ETH Zurich, Block Research Group**
 
 ---
 
-> **Note:** This documentation describes the computational pipeline developed at ETH Zurich as part of the CARBCOMN project. The underlying source code is currently under active development in a private repository and will be released as open-source software at the conclusion of the project.
+> **Note:** The underlying source code is currently under active development in a private repository and will be released as open-source software at the conclusion of the project.
 
 ---
 
