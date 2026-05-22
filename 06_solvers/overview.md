@@ -41,7 +41,7 @@ LMGC90 is broader than just NSCD: its general framework exposes all combinations
 
 Result quality depends on the interaction law, the number of NLGS iterations (convergence of the contact problem at each step), and the time step.
 
-**Use for:** Non-smooth joint simulations, large floor models, contact force investigation, support settlement studies, force-driven simulations. 
+**Use for:** Non-smooth contact simulations, large floor models, contact force investigation, support settlement studies, force-driven simulations. 
 
 ---
 
@@ -72,7 +72,7 @@ The framework supports rigid and deformable blocks, handles seismic and blast lo
 
 Result quality depends on the joint constitutive model (which physics is captured at the interface), the choice of joint stiffnesses (which trade off interpenetration against numerical stability), and the time step (small enough for stability and accuracy, large enough for tractable run times).
 
-**Use for**: Smooth joint simulations, dynamic loading of masonry (seismic, blast, impact), equilibrium tests and projects where commercial software with audit trails and technical support is expecte.
+**Use for**: Smooth contact simulations, dynamic loading of masonry (seismic, blast, impact), equilibrium tests and projects where commercial software with audit trails and technical support is expecte.
 
 > **See also:** [Solver Comparison](solver_comparison.md)
 
@@ -88,7 +88,7 @@ CRA is a static stability analyzer developed by the Block Research Group at ETH 
 
 Beyond stability assessment, CRA is also a design tool. Its penalty formulation extends the analysis to infeasible configurations by allowing tensile contact forces in regions that cannot be supported by compression and friction alone. The location and magnitude of these tensile forces tell the designer where the structure fails and how much additional support is needed to stabilize it — whether through added blocks, modified interface geometry, or local reinforcement. This makes CRA suitable for iterative stability-aware design workflows, where each modification is evaluated immediately and the designer is guided toward a structurally sound configuration.
 
-CRA is implemented in Python using Pyomo and the IPOPT nonlinear solver, integrated into the COMPAS framework[^iannuzzo2021]. It requires no time step, no stiffness tuning, and no solver iterations.
+CRA is implemented in Python using Pyomo and the IPOPT nonlinear solver, integrated into the COMPAS framework[^iannuzzo2021].
 
 **Capabilities:**
 
