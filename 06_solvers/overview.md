@@ -21,16 +21,27 @@ rbe    = Solver.RBE()
 
 **Type:** Non-smooth Contact Dynamics (NSCD)  
 **License:** Open-source  
-**Status:** Default solver; under active development in `compas_dem`
+**Status:** Under active development
 
-LMGC90 is a molecular-dynamics-inspired solver that handles contact and friction through an implicit time-stepping scheme. It is the most capable open-source DEM solver available in the pipeline:
+LMGC90 is an open-source contact mechanics framework developed at Université de Montpellier / CNRS, designed for problems where many bodies interact through contact and friction. It can handle granular media, masonry structures, jointed rock, and similar assemblies. Its main feature is the underlying Non-Smooth Contact Dynamics (NSCD) method (Moreau, 1988; Jean, 1999), in which Signorini's non-penetration condition is imposed as an exact mathematical constraint. The practical consequence is that LMGC90 takes large time steps and stays stable through violent impacts and persistent dense contact.
 
-- Handles large assemblies (hundreds to thousands of blocks)
-- Supports rigid **and** deformable blocks (deformable not yet exposed in the CARBCOMN pipeline)
-- Handles dynamic load cases (prescribed displacements, kinematic loading)
-- Produces robust results even at near-collapse configurations
+LMGC90 is broader than just NSCD: its general framework exposes all combinations of contact law (smooth or non-smooth) and integration scheme (explicit or implicit). For non-smooth contact, the integration scheme is selected smoothly through a θ-integrator —$\theta = 0$ is fully explicit, $\theta = 1$ is fully implicit. This is backed by an extensive catalog of about 25 interaction laws covering both smooth and non-smooth models. The framework supports rigid and FEM-deformable bodies in the same simulation, scales to tens of thousands of bodies, and is the most capable open-source contact solver in the CARBCOMN pipeline for masonry and dense block-assembly problems.
 
-**Use for:** All standard analyses, large floor models, min/max thrust investigations, support displacement.
+**Capabilities**:
+
+- Handles large assemblies
+- Supports rigid and deformable blocks (deformable not yet exposed in the CARBCOMN pipeline)
+- Handles dynamic and quasi-static loading (prescribed forces, displacements, kinematic loading)
+
+**Non-smooth simulations** are governed by three choices:
+
+- Contact law — selects the physics (Signorini-Coulomb, CZM, etc.)
+- θ value — sets the integration scheme between explicit and implicit
+- Non-Linear Gauss-Seidel (NLGS) parameters — number of iterations and convergence tolerance for the contact solver
+
+Result quality depends on the interaction law, the number of NLGS iterations (convergence of the contact problem at each step), and the time step.
+
+**Use for:** Non-smooth joint simulations, large floor models, contact force investigation, support settlement studies, force-driven simulations.
 
 ---
 
@@ -69,17 +80,34 @@ RBE is a fast, approximate solver designed for rapid design iteration. It finds 
 ---
 
 ### 3DEC
+**Type**: Distinct Element Method (DEM, explicit penalty-based)
+**License**: Commercial (Itasca Consulting Group)
+**Status**: Available via `Solver.3DEC()` with a valid license
 
-**Type:** Distinct Element Method (commercial)  
-**License:** Commercial (Itasca)  
-**Status:** Available via `Solver.3DEC()` with a valid license
+3DEC (3 Dimensional Distinct Element Code) is Itasca's commercial implementation of the Distinct Element Method, originally developed by Peter Cundall in the 1970s. It is designed for problems where a system of blocky bodies interact through joints and contact surfaces. It is widely used in jointed rock mechanics, mining, tunneling, slope stability, rock caverns, and large masonry analysis. Its main feature is the underlying Distinct Element Method (Cundall, 1971; Cundall & Hart, 1992), in which contact between blocks is modeled through penalty springs at the joint interfaces — each contact is represented by a normal stiffness k_n​, a shear stiffness ksk_s
+ks​, and a constitutive law governing slip and separation. The practical consequence is that 3DEC resolves the full force-displacement history at every joint and integrates the equations of motion explicitly in time using a velocity-Verlet-style scheme.
 
-3DEC is the industry-standard commercial DEM software. It is highly optimised, supports deformable blocks, joint constitutive models beyond Mohr-Coulomb, and has been validated against physical experiments extensively:
+3DEC's strength lies in its optimised algorithms, extensive catalog of joint constitutive models, such as Coulomb slip, continuously-yielding, Barton-Bandis, and other rock-specific laws, combined with fully deformable block support, where each block can be internally zoned with a FEM mesh and assigned a bulk constitutive model (elastic, Mohr-Coulomb, strain-softening, etc.).
 
-- Fastest and most robust for large, complex assemblies
-- Requires an expensive commercial license
-- Full feature parity with LMGC90 plus deformable block support
+The framework supports rigid and deformable blocks, handles seismic and blast loading, and is backed by decades of validated case studies. It is the industry-standard tool for problems where joint behavior is the dominant physics and where commercial-grade documentation, GUI workflows, and technical support are required.
 
-**Use for:** Final structural verification analyses where commercial-grade accuracy is required.
+**Capabilities**:
+
+- Handles large blocky assemblies
+- Supports rigid and fully deformable blocks 
+- Handles dynamic and quasi-static loading(prescribed forces, displacements, seismic input)
+- Rich library of joint constitutive models for rock and structural applications
+- Mature pre- and post-processing GUI with commercial support
+
+**Distinct Element simulations** are governed by three main choices:
+
+- Joint constitutive model — selects the physics at the interface (Coulomb, Barton-Bandis, continuously-yielding, etc.)
+- Joint stiffnesses ($k_n$​, $k_s$) — set the penalty stiffness controlling penetration and shear response.
+- Time step — bounded by the stability condition for the explicit integrator
+
+Result quality depends on the joint constitutive model (which physics is captured at the interface), the choice of joint stiffnesses (which trade off interpenetration against numerical stability), and the time step (small enough for stability and accuracy, large enough for tractable run times).
+
+**Use for**: Smooth joint simulations, large masonry analyses, projects where commercial software with audit trails and technical support is expected (regulatory contexts, heritage assessments, structural certification), and dynamic loading scenarios for masonry (seismic, blast, impact).
+
 
 > **See also:** [Solver Comparison](solver_comparison.md)
