@@ -6,8 +6,8 @@ This stage covers the structural analysis of block assemblies. Such systems are 
 
 Within this family, methods divide broadly into two branches:
 
-- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA)[^block2007], Coupled Rigid Block Analysis (CRA)[^dellendice2021], the Piecewise Rigid Displacement (PRD) method[^iannuzzo2020], and Rigid Block Equilibrium[^kao2022].
-- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD)[^moreau1988][^jean1999] and the Distinct/Discrete Element Method[^cundall1971][^cundall1979].
+- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA)[^block2007], Coupled Rigid Block Analysis (CRA)[^kao2022][^iannuzzo2021], the Piecewise Rigid Displacement (PRD) method[^iannuzzo2020], and Rigid Block Equilibrium[^kao2021].
+- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD)[^moreau1988][^jean1999][^dubois2018] and the Distinct/Discrete Element Method[^cundall1971][^cundall1979].
 
 Within the CARBCOMN pipeline, DEM is the third and final computational stage. It takes the block geometry produced by TNA and geometry generation as input and answers the central structural question: **given the geometry and the loads, do equilibrium contact forces exist that satisfy the no-tension, friction-limited conditions?**
 
@@ -49,7 +49,7 @@ Equilibrium of the assembly thus reduces to finding contact forces $\{\mathbf{F}
 
 ## Contact conditions
 
-At the heart of every BBM lies a contact detection algorithm that identifies the shared faces between adjacent blocks — the same faces where the structural response is resolved. Whether stated explicitly or enforced implicitly through the solver, two contact conditions must hold at each interface:
+At the heart of every BBM lies a contact detection algorithm that identifies the shared faces between adjacent blocks – the same faces where the structural response is resolved. Whether stated explicitly or enforced implicitly through the solver, two contact conditions must hold at each interface:
 
 
 #### 1. No-tension (Signorini) condition
@@ -119,11 +119,13 @@ These are visualised in the `DEMViewer` as force vectors scaled to their magnitu
 
 [^heyman1966]: Heyman, J. (1966). The stone skeleton. *International Journal of Mechanical Sciences*, 8(4), 249–279.
 [^block2007]: Block, P. & Ochsendorf, J. (2007). Thrust network analysis: A new methodology for three-dimensional equilibrium. *Journal of the International Association for Shell and Spatial Structures*, 48(3), 167–173.
-[^dellendice2021]: Dell'Endice, A., Iannuzzo, A., DeJong, M.J., Van Mele, T. & Block, P. (2021). Modelling imperfections in unreinforced masonry structures: Limit analysis with convex optimization. *Engineering Structures*, 228, 111531.
 [^iannuzzo2020]: Iannuzzo, A., Van Mele, T. & Block, P. (2020). Piecewise rigid displacement (PRD) method: A limit analysis-based approach to detect mechanisms and static admissible stress fields. *Mechanics Research Communications*, 107, 103557.
-[^kao2022]: Kao, G.T.C., Iannuzzo, A., Thomaszewski, B., Coros, S., Van Mele, T. & Block, P. (2022). Coupled rigid-block analysis: Stability-aware design of complex discrete-element assemblies. *Computer-Aided Design*, 146, 103216.
+[^iannuzzo2021]: Iannuzzo, A., Dell'Endice, A., Maia Avelino, R., Kao, G.T.-C., Van Mele, T. & Block, P. (2021). COMPAS Masonry: A computational framework for practical assessment of unreinforced masonry structures. *SAHC Symposium*, Barcelona.
+[^kao2021]: Kao, G.T.-C., Iannuzzo, A., Coros, S., Van Mele, T. & Block, P. (2021). Understanding the rigid-block equilibrium method by way of mathematical programming. *Proceedings of the Institution of Civil Engineers – Engineering and Computational Mechanics*.
+[^kao2022]: Kao, G.T.-C., Iannuzzo, A., Thomaszewski, B., Coros, S., Van Mele, T. & Block, P. (2022). Coupled Rigid-Block Analysis: Stability-Aware Design of Complex Discrete-Element Assemblies. *Computer-Aided Design*, 146, 103216.
 [^moreau1988]: Moreau, J.J. (1988). Unilateral contact and dry friction in finite freedom dynamics. In *Non-Smooth Mechanics and Applications*, CISM Courses and Lectures 302. Springer, Vienna, pp. 1–82.
 [^jean1999]: Jean, M. (1999). The non-smooth contact dynamics method. *Computer Methods in Applied Mechanics and Engineering*, 177(3–4), 235–257.
+[^dubois2018]: Dubois, F., Acary, V. & Jean, M. (2018). The Contact Dynamics method: A nonsmooth story. *Comptes Rendus Mécanique*, 346, 247–262.
 [^cundall1971]: Cundall, P.A. (1971). A computer model for simulating progressive, large-scale movements in blocky rock systems. *Proceedings of the Symposium of the International Society of Rock Mechanics*, Nancy, Vol. 1, Paper II-8.
 [^cundall1979]: Cundall, P.A. & Strack, O.D.L. (1979). A discrete numerical model for granular assemblies. *Géotechnique*, 29(1), 47–65.
 [^lemos2007]: Lemos, J.V. (2007). Discrete element modeling of masonry structures. *International Journal of Architectural Heritage*, 1(2), 190–213.
