@@ -6,7 +6,7 @@
 
 ## Purpose
 
-The DEM problem step defines the **mechanical problem** — material, contact law, boundary conditions, and loads — and runs the DEM solver. After solving, contact forces are stored on the model's graph edges and nodal displacements on the nodes.
+The DEM problem step defines the **mechanical problem** — material, contact law, boundary conditions, loads and solver parameters — and runs the DEM solver. After solving, contact forces are stored on the model's graph edges and nodal displacements on the nodes.
 
 ## Code walkthrough
 
@@ -37,14 +37,14 @@ session.sync()
 
 ## The contact model
 
-The `MohrCoulomb` contact model encodes the no-tension and friction constraints described in the [DEM Theory section](../02_theory/discrete_element_method.md):
+The `MohrCoulomb` contact model encodes the friction constraints described in the [DEM Theory section](../02_theory/discrete_element_method.md):
 
 | Parameter | Description | Typical value |
 |-----------|-------------|---------------|
 | `phi` | Friction angle [degrees] | 30–40° for dry masonry |
 | `c` | Cohesion [kPa] | 0 for dry joints; > 0 for mortared joints |
 
-Setting `c=0` and `phi=40` represents a **dry joint** with moderate friction — appropriate for the CARBCOMN system where blocks are held in place by geometry and post-tension rather than mortar.
+Setting `c=0` and `phi=35°` represents a **dry joint** with moderate friction — appropriate for the CARBCOMN system where blocks are held in place by geometry and post-tension rather than mortar.
 
 ## Support conditions
 

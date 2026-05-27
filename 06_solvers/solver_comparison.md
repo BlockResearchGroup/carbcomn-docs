@@ -1,24 +1,28 @@
 # Solver Comparison
 
-This table summarises the practical trade-offs between the available solvers for typical CARBCOMN analysis tasks.
+This page summarises the practical trade-offs between the available solvers for typical CARBCOMN analysis tasks. For full per-solver descriptions, see the individual solver pages.
+
+## Comparison table
 
 | Property | LMGC90 | CRA | RBE | 3DEC |
-|----------|:------:|:---:|:---:|:----:|
-| License | Open-source | Open-source | Open-source | Commercial |
-| Formulation | NSCD (time-stepping) | Convex optimisation | Direct equilibrium | Distinct Element |
-| Max assembly size | Large (1000s) | Small (~50–100) | Medium (~200) | Very large |
-| Precision | High | Exact | Approximate | Very high |
-| Dynamic / kinematic loading | ✓ | — | — | ✓ |
-| Deformable blocks | (planned) | — | — | ✓ |
-| Convergence at near-collapse | ✓ | ✓ | partial | ✓ |
-| Install complexity | Medium | Low | Low | High (license) |
+| --- | :---: | :---: | :---: | :---: |
+| License | Open-source (LMGC, Montpellier) | Open-source (BRG) | Open-source (BRG) | Commercial (Itasca) |
+| Formulation | NSCD (implicit) | Coupled equilibrium-kinematics | Direct equilibrium | DEM (explicit) |
+| Approach | Dynamic / quasi-static | Static | Static | Dynamic |
+| Mechanical parameters | $\mu$, restitution, density | $\mu$, density | $\mu$, density | $\mu$, joint stiffness, density, $E$, $G$ |
+| Max feasible assembly size (blocks) | $10^3$–$10^4$ | $10^1$–$10^2$ | $10^2$–$10^3$ | $10^3$–$10^4$ |
+| Computationally efficient | ◐ | ✗ | ✓ | ◐ |
+| Settlements / displacement capacity | ✓ | — | — | ✓ |
+| Deformable blocks | ◐ (not yet exposed in CARBCOMN) | — | — | ✓ |
+| Infeasibility localisation | — | ✓ (via penalty) | ✓ (via penalty) | — |
+| Install complexity | Medium | Low | Low | High (license required) |
 
 ## Recommendation for CARBCOMN workflows
 
-- **Default:** Use **LMGC90** for all standard analyses. It handles the full floor models (300–500 blocks) robustly and supports the support-displacement load cases needed for min/max thrust analysis.
-- **Validation:** Run **CRA** on the simpler examples (`000_threeblocks`, `100_arch`) to cross-validate LMGC90 results.
-- **Early iteration:** Use **RBE** when iterating quickly over parameter variations where precise force magnitudes are less important than the qualitative force flow pattern.
-- **Final verification:** Use **3DEC** for high-stakes analyses where commercial-grade precision is required, if a license is available.
+* **Default:** Use **LMGC90** for all standard analyses. It handles the full floor models (300–500 blocks) robustly and supports the support-displacement load cases needed for min/max thrust analysis.
+* **Validation:** Run **CRA** on the simpler examples (`000_threeblocks`, `100_arch`) to cross-validate LMGC90 results. CRA's limit-analysis answer is mathematically rigorous on small assemblies and serves as the trustworthy reference for benchmarking dynamic solvers.
+* **Early iteration:** Use **RBE** when iterating quickly over parameter variations on classical geometries (arches, vaults, planar interfaces) where the qualitative force flow matters more than precise magnitudes. **Do not rely on RBE stability verdicts for complex 3D assemblies.**
+* **Final verification:** Use **3DEC** for high-stakes analyses where validated commercial-grade joint models, regulatory documentation, or dynamic loading scenarios are required, if a license is available.
 
 ## Comparing solvers on the same model
 
@@ -31,5 +35,3 @@ problem.solve(Solver.LMGC90())
 # In 142_dem_problem_CRA.py
 problem.solve(Solver.CRA())
 ```
-
-Both store results in the same `session["blockmodel_results"]` format. Running both scripts and comparing the printed contact forces quantifies the solver-to-solver discrepancy for a given model.

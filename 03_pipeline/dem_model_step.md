@@ -59,12 +59,13 @@ for contact in model.contacts():
     print(contact.mesh)   # the interface polygon mesh
 ```
 
-In the viewer, support blocks are shown in red and non-support blocks in the default colour. Contact polygons are shown in cyan. The contact graph edges are shown as magenta lines connecting block centroids.
+In the viewer, support blocks are shown in red and non-support blocks in light grey. Contact polygons are shown in cyan. The contact graph edges are shown as magenta lines connecting block centroids.
 
 <!-- [IMAGE PLACEHOLDER: BlockModel viewer showing blocks, contact polygons (cyan), and graph edges (magenta)] -->
 
 ## Degenerate contacts
 
-Edge-to-edge contacts (where two blocks share only an edge, not a face) are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing geometry issues — an unexpected number of degenerate contacts may indicate a problem with the block mesh geometry or the contact detection tolerance.
+Contacts which lose one or more contact points are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly.
+In the current implementation, only dynamic solvers can have degenerate contacts.
 
 > **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_theory/discrete_element_method.md)
