@@ -45,4 +45,4 @@ See [Session & Parameter Management](session.md) for details.
 | 400 — Floor, ridge voussoirs | ✓ | ✓ | ✓ |
 | 500 — Floor, CARBCOMN voussoirs | ✓ | ✓ | ✓ |
 
-The simpler examples are not subsets of the complex ones — they are independent starting points that demonstrate specific pipeline concepts without unnecessary complexity.
+The examples gradually increase in complexity, to emphasise on specific pipeline concepts without unnecessary complexity.
