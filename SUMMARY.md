@@ -11,7 +11,7 @@
 
 * [Structural System](02_theory/structural_principles.md) (Daniele/Baraa)
 * [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md) (**Baraa**/Ale/Ricardo)
-* [Discrete Element Modeling (DEM)](02_theory/discrete_element_method.md) (**Baraa**/Ale/Ricardo)
+* [Discrete Element Modeling (DEM)](02_theory/discrete_element_modelling.md)
 * [COMPAS Framework](02_theory/compas_framework.md) (All)
 * [CARBCOMN.core Architecture](02_theory/carbcomn_core_architecture.md) (**Daniele**)
 

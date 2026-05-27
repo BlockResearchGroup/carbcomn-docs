@@ -2,13 +2,15 @@
 
 ## Digital Infrastructure
 
-The CARBCOMN digital framework is an end-to-end computational pipeline linking design intent to prefabricated discrete components for unreinforced masonry structures. Building on BRG workflows, it couples Thrust Network Analysis (TNA)-driven form-finding with parametric modelling, stereotomy, and fabrication constraint checking. The "design-to-fabrication" approach integrates fabrication criteria into form-finding to support downstream planning. Implemented in COMPAS, the framework provides an object-based, software-agnostic data backbone enabling multi-resolution derivations and traceability across form-finding, discretisation, analysis outputs, and export.
+The CARBCOMN.core digital framework is an end-to-end computational pipeline linking design intent to prefabricated discrete components for unreinforced masonry structures. Building on BRG workflows ,and implemented in COMPAS, the framework provides an object-based, software-agnostic data backbone enabling multi-resolution derivations and traceability across multiple domains of advanced construction projects, including structural design and optimisation, fabrication, LCA and architectural design.
 
 > **Reference:** <!-- [REF: author_year] Add paper reference for this section -->
 
 <!-- [IMAGE PLACEHOLDER: End-to-end pipeline diagram — from design intent to prefabricated components] -->
 
 ## Core Principles
+
+The CARBCOMN floor system is generated through a parametric pipeline which integrates form-finding feedback, discerete element modelling into a parametric system. The main principles of this infrastructure are:
 
 ### 1 — Hierarchical Parametric Logic
 
@@ -23,6 +25,7 @@ params = {
     "elements": { "column_width": 0.2, "intrados_halfwidth": 0.04 },  # block level
 }
 ```
+The relationhips between different hierarchies of elements constraints the floor system design and creates a relationship between them elements.
 
 ### 2 — Multi-resolution Representations
 
@@ -33,11 +36,14 @@ In the pipeline this manifests as the progression:
 ```
 params (parametric blueprint)
     → RefMesh (equilibrium surface — coarse, graph-level)
-        → block_meshes (voussoir geometry — intermediate)
-            → RefBlock (typed geometry carrier)
-                → StructuralElement (high-resolution, analysis-ready)
+        → block_meshes (voussoir geometry template)
+            → RefBlock (parametric template carrier)
+                → Block(StructuralElement) (high-resolution, analysis-ready)
                     → BlockModel contact graph (topology for solver)
 ```
+
+<!-- [IMAGE PLACEHOLDER: Hierarchical and Parametric Workflow] -->
+
 
 Each level adds resolution only where needed. A design exploration loop can operate entirely at the `RefMesh` level; DEM analysis requires the full `StructuralElement` geometry.
 
@@ -45,7 +51,7 @@ Each level adds resolution only where needed. A design exploration loop can oper
 
 Expensive derivations — contact detection, DEM solving, fabrication feasibility checks — are computed only for selected design candidates, not for every parameter variation. All derived outputs remain traceable to their originating parametric definitions through COMPAS JSON serialisation and persistent GUIDs.
 
-In practice this means the `WorkflowSession` stores every intermediate artefact and its provenance. Re-running a single pipeline stage regenerates only what that stage produces, leaving all upstream artefacts intact.
+In practice this means the `WorkflowSession` stores every intermediate artefact in JSON serialised format. Re-running a single pipeline stage regenerates only what that stage produces, leaving all upstream artefacts intact.
 
 ## Data Model
 
@@ -53,10 +59,11 @@ The framework relies on a multi-resolution object model implemented in COMPAS an
 
 ```
 System
-  └── Element (floor, frame, ...)
-        └── Block (voussoir, column, beam, ...)
+  └── Assembly (floor, grid, ...)
+        └── Element (block, column, beam, ...)
               └── Interface (contact between blocks)
 ```
+
 
 Each level carries:
 - **Persistent identifiers** (GUIDs) linking derived artefacts back to their source definitions
