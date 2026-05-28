@@ -94,5 +94,33 @@ for u, v, contact in model.graph.edges(data=True):
     ft1 = contact["Ft1"]   # tangential force component 1 [N]
     ft2 = contact["Ft2"]   # tangential force component 2 [N]
 ```
+## Post-Processing of Results
+Post processing happens inside COMPAS_DEM, and it is set seperately in each solver. The results data is called back from the solver, then processed seperately into a compas unified data, where results are stored on the grapg, and visualised later with the compas dem command:
+
+```python
+from compas_dem.viewer import DEMViewer
+viewer = DEMViewer(problem.model)
+viewer.add_solution(scale=1.0)
+viewer.show()
+```
+
+### Degenerate Contacts
+
+Contacts which lose one or more contact points during analysis are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly.
+In the current implementation, only dynamic solvers can have degenerate contacts.
+
+### Accessing Data
+
+The block displacement data, can be accessed directly from the graph attributes:
+```python
+graph = problem.model.graph
+for node in graph.nodes():
+    block_transformation = graph.node_attribute(node, "transformation")
+
+for edge in graph.edges():
+    gap = graph.edge_attribute(edge, "gap")
+    magnitude = graph.edge_attribute(edge, "force_magnitude")
+    print(f"Edge {edge} gap: {gap}, force magnitude: {magnitude}")
+```
 
 > **See also:** \[Step 6 — DEM Visualisation is handled in example pages], [Solver Overview](../06_solvers/overview.md), [DEM Theory](../02_theory/discrete_element_modelling.md)
