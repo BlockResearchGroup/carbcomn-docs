@@ -1,12 +1,10 @@
-# Structural Principles
+# Structural System
 
 ## Compression-dominant structural systems
 
 Traditional masonry structures — arches, vaults, domes, flying buttresses — owe their longevity to a single fundamental property: **stone and brick are strong in compression but essentially incapable of carrying tension**. Because mortar joints in historical masonry are also very weak in tension, these structures survive only if their internal forces remain compressive everywhere. This constraint, far from being a limitation, is what gives masonry structures their characteristic geometry: the curved profiles of Gothic vaults, the pointed arches of Roman aqueducts, and the catenary form of suspension bridges are all expressions of the same underlying principle — the **funicular form**.
 
-A funicular form for a given load distribution is one in which the structure carries loads purely through axial force, with no bending. For compression (pushing) forces this is the *inverted* catenary — a shape that hangs in pure tension under gravity also stands in pure compression when flipped. The structural integrity of masonry relies on the internal thrust remaining within the material: as long as the line of thrust passes through the cross-section of every joint, no tension develops and the structure is in equilibrium.
-
-<!-- [IMAGE PLACEHOLDER: Illustration of thrust line in an arch — safe / unsafe configurations] -->
+A funicular form for a given load distribution is one in which the structure carries loads purely through axial force, with no bending. For compression (pushing) forces this is the _inverted_ catenary — a shape that hangs in pure tension under gravity also stands in pure compression when flipped. The structural integrity of masonry relies on the internal thrust remaining within the material: as long as the line of thrust passes through the cross-section of every joint, no tension develops and the structure is in equilibrium.
 
 ## From 1D arches to 2D vaults
 
@@ -24,8 +22,6 @@ The CARBCOMN floor system brings this structural logic into the context of conte
 2. **Carbon-fibre post-tensioning** — cables running through channels in the voussoirs provide a controlled horizontal tensile tie, stabilising the system against spreading and enabling the use of the system without deep abutments
 3. **Demountability** — the blocks are held in place by geometry and post-tension; they can be disassembled, reused, or replaced at end of life
 
-<!-- [IMAGE PLACEHOLDER: Cross-section of CARBCOMN floor system showing vault geometry, voussoir blocks, and cable path] -->
-
 The structural behaviour of this system is fundamentally that of a **compression shell with a tensile tie ring**: the vault carries loads in compression along trajectories determined by TNA, while the cables provide the horizontal reaction that would otherwise need to be carried by massive abutments or a stiff perimeter frame.
 
 ## Discrete assemblies and block mechanics
@@ -34,27 +30,20 @@ Because the floor is made of **discrete blocks** rather than a continuous materi
 
 The structural analysis of discrete masonry assemblies is therefore a problem in **contact mechanics**: given the geometry of the blocks and the applied loads, do equilibrium forces exist at the contacts that satisfy the no-tension, friction-limited conditions? And if so, what are they?
 
-This is the domain of the **Discrete Element Method (DEM)**, described in the [DEM section](discrete_element_method.md). DEM is the third and final computational stage of the CARBCOMN pipeline, and it operates on the block geometry produced by TNA form-finding and the subsequent discretisation step.
+This is the domain of the **Discrete Element Method (DEM)**, described in the [DEM section](discrete_element_modelling.md). DEM is the third and final computational stage of the CARBCOMN pipeline, and it operates on the block geometry produced by TNA form-finding and the subsequent discretisation step.
 
 ## Key concepts summary
 
-| Concept | Description |
-|---------|-------------|
-| Funicular form | A structural geometry that carries a given load in pure compression (or tension), with no bending |
-| Thrust surface | The 2D generalisation of the thrust line — the surface through which compressive resultants flow in a vault |
-| Force density | The ratio of axial force to edge length in a network; the key variable in TNA optimisation |
-| Contact constraint | The condition that contact forces at block interfaces must be compressive and within the friction cone |
-| Voussoir | A wedge-shaped block forming part of an arch or vault; the elementary unit of the CARBCOMN floor |
+| Concept            | Description                                                                                                 |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| Funicular form     | A structural geometry that carries a given load in pure compression (or tension), with no bending           |
+| Thrust surface     | The 2D generalisation of the thrust line — the surface through which compressive resultants flow in a vault |
+| Force density      | The ratio of axial force to edge length in a network; the key variable in TNA optimisation                  |
+| Contact constraint | The condition that contact forces at block interfaces must be compressive and within the friction cone      |
+| Voussoir           | A wedge-shaped block forming part of an arch or vault; the elementary unit of the CARBCOMN floor            |
 
-> **References:** <!-- [PLACEHOLDER: Add key references — Block & Ochsendorf 2007, Heyman 1966, etc.] -->
+> **References:**
 
----
+***
 
 ## References
-
-<!-- Add references below using the format:
-[N] Author, A., Author, B. (Year). *Title of paper or book*. Journal / Publisher, Volume(Issue), Pages. DOI/URL
-Example:
-[1] Block, P., Ochsendorf, J. (2007). *Thrust network analysis: A new methodology for three-dimensional equilibrium*. Journal of the IASS, 48(3), 167–173.
--->
-

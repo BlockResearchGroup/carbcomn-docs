@@ -58,9 +58,9 @@ flowchart LR
 
 All intermediate data is persisted through the **`WorkflowSession`** system, which stores named Python objects as JSON files on disk. This means:
 
-- Each pipeline stage is an independent script that reads from and writes to the session
-- Any stage can be re-run in isolation without repeating previous stages
-- Parameters are defined once (in the `init` script) and propagated automatically
+* Each pipeline stage is an independent script that reads from and writes to the session
+* Any stage can be re-run in isolation without repeating previous stages
+* Parameters are defined once (in the `init` script) and propagated automatically
 
 ```mermaid
 flowchart TD
@@ -83,16 +83,16 @@ flowchart TD
 
 Workflow scripts follow a numbered prefix convention that makes the execution order explicit:
 
-| Prefix | Stage |
-|--------|-------|
-| `X00`  | Init — define session and parameters |
-| `X10`  | TNA — compute equilibrium form diagram |
-| `X20`  | Geometry — generate block meshes and frames |
-| `X30`  | RefBlock — build typed structural elements |
-| `X40`  | DEM Model — assemble `BlockModel` and compute contacts |
-| `X41`  | DEM Problem — define and solve the mechanical problem |
-| `X42`  | DEM Visualisation — inspect results interactively |
-| `X50`  | Structural Grid — build column and beam layout |
+| Prefix | Stage                                                   |
+| ------ | ------------------------------------------------------- |
+| `X00`  | Init — define session and parameters                    |
+| `X10`  | TNA — compute equilibrium form diagram                  |
+| `X20`  | Geometry — generate block meshes and frames             |
+| `X30`  | RefBlock — build typed structural elements              |
+| `X40`  | DEM Model — assemble `BlockModel` and compute contacts  |
+| `X41`  | DEM Problem — define and solve the mechanical problem   |
+| `X42`  | DEM Visualisation — inspect results interactively       |
+| `X50`  | Structural Grid — build column and beam layout          |
 | `X51`  | Floor Assembly — integrate vault into full `FloorModel` |
 
 Not every workflow uses every stage. The simpler examples (three-block test, arch) skip TNA and jump directly to geometry. See [Examples Overview](../04_examples/overview.md) for a comparison.
@@ -101,10 +101,7 @@ Not every workflow uses every stage. The simpler examples (three-block test, arc
 
 As the pipeline progresses from geometry to analysis, block meshes are progressively typed into structural element classes:
 
-![Element type hierarchy — from raw mesh to typed structural elements](../assets/images/01_introduction/element_hierarchy.png)
-
-<!-- Image file location: CARBCOMN.core_Docs/assets/images/01_introduction/element_hierarchy.png -->
-<!-- Replace with your diagram when ready. A placeholder PNG is currently in that folder. -->
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/element_hierarchy.png)
 
 The element type assigned to a given block controls its geometry for DEM analysis but does not change the pipeline structure — the `BlockModel` and solver are agnostic to element type.
 

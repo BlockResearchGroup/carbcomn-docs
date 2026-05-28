@@ -1,7 +1,7 @@
 # Step 3 — RefBlock & Element Typing
 
-**Script prefix:** `X30`  
-**Session inputs:** `session["params"]`, `session["refmesh"]`, `session["block_meshes"]`, `session["block_frames"]`  
+**Script prefix:** `X30`\
+**Session inputs:** `session["params"]`, `session["refmesh"]`, `session["block_meshes"]`, `session["block_frames"]`\
 **Session outputs:** `session["refblocks"]`, `session["block_elements"]`
 
 ## Purpose
@@ -88,4 +88,4 @@ element.compute_elementgeometry()   # returns the typed Mesh
 element.modelgeometry               # the same, as a property
 ```
 
-> **See also:** [The CARBCOMN Voussoir (Theory)](../02_theory/carbcomn_voussoir.md), [Example 400](../04_examples/400_floor_stag_ridge.md), [Example 500](../04_examples/500_floor_stag_carbcomn.md)
+> **See also:** [The CARBCOMN Voussoir (Theory)](/broken/pages/U7ccoSYOu27Jj5q78X2F), [Example 400](../04_examples/400_floor_stag_ridge.md), [Example 500](../04_examples/500_floor_stag_carbcomn.md)

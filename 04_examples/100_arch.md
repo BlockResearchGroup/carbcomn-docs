@@ -1,34 +1,34 @@
 # 100 — Arch
 
-**Session name:** `ArchTest`  
+**Session name:** `ArchTest`\
 **Folder:** `examples/workflows/testing_dem/100_arch/`
 
 ## Goal
 
 A **semi-circular arch of ten voussoirs**. This workflow introduces the `ArchTemplate` for parametric geometry generation, the `MohrCoulomb` friction contact model, and **support displacement load cases** for driving the arch toward its minimum and maximum thrust states.
 
-![Arch 3D View](../assets/images/04_examples/001/Arch_Blocks.png)
+![Arch 3D View](../.gitbook/assets/Arch_Blocks.png)
 
 ## Concepts introduced
 
-- **`ArchTemplate`** — parametric voussoir geometry from rise, span, depth, thickness, and block count; no `RefMesh` or TNA required
-- **`MeshGeometryElement`** — explicit per-element construction with manual `is_support` assignment
-- **`MohrCoulomb` contact model** — friction-only contact law (φ, c), appropriate for dry-stone masonry
-- **Multiple solvers on the same model** — LMGC90 and CRA scripts run identically except for the solver choice
-- **Support displacement** — prescribing a horizontal inward displacement to one support to drive the arch toward collapse; demonstrates min/max thrust analysis
+* **`ArchTemplate`** — parametric voussoir geometry from rise, span, depth, thickness, and block count; no `RefMesh` or TNA required
+* **`MeshGeometryElement`** — explicit per-element construction with manual `is_support` assignment
+* **`MohrCoulomb` contact model** — friction-only contact law (φ, c), appropriate for dry-stone masonry
+* **Multiple solvers on the same model** — LMGC90 and CRA scripts run identically except for the solver choice
+* **Support displacement** — prescribing a horizontal inward displacement to one support to drive the arch toward collapse; demonstrates min/max thrust analysis
 
 ## Workflow steps
 
-| Script | Stage | Description |
-|--------|-------|-------------|
-| `100_init.py` | X00 Init | Session, arch geometry params (span, rise, depth, thickness, n_blocks) |
-| `120_geometry.py` | X20 Geometry | `ArchTemplate` → block meshes |
-| `140_dem_model.py` | X40 DEM Model | Assemble `BlockModel`, assign first/last blocks as supports |
-| `141_dem_problem_LMGC90.py` | X41 DEM Problem | Self-weight, LMGC90 solver |
-| `142_dem_problem_CRA.py` | X41 DEM Problem | Self-weight, CRA solver |
-| `143_dem_results.py` | X42 Visualisation | Load and inspect results |
-| `144_Max_Thrust.py` | X41 DEM Problem | LMGC90 + inward support displacement → max thrust state |
-| `145_Min_Thrust.py` | X41 DEM Problem | LMGC90 + inward support displacement → min thrust state |
+| Script                      | Stage             | Description                                                             |
+| --------------------------- | ----------------- | ----------------------------------------------------------------------- |
+| `100_init.py`               | X00 Init          | Session, arch geometry params (span, rise, depth, thickness, n\_blocks) |
+| `120_geometry.py`           | X20 Geometry      | `ArchTemplate` → block meshes                                           |
+| `140_dem_model.py`          | X40 DEM Model     | Assemble `BlockModel`, assign first/last blocks as supports             |
+| `141_dem_problem_LMGC90.py` | X41 DEM Problem   | Self-weight, LMGC90 solver                                              |
+| `142_dem_problem_CRA.py`    | X41 DEM Problem   | Self-weight, CRA solver                                                 |
+| `143_dem_results.py`        | X42 Visualisation | Load and inspect results                                                |
+| `144_Max_Thrust.py`         | X41 DEM Problem   | LMGC90 + inward support displacement → max thrust state                 |
+| `145_Min_Thrust.py`         | X41 DEM Problem   | LMGC90 + inward support displacement → min thrust state                 |
 
 ## Key code snippets
 
