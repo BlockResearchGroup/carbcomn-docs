@@ -6,8 +6,8 @@ This stage covers the structural analysis of block assemblies. Such systems are 
 
 Within this family, methods divide broadly into two branches:
 
-- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA)[^2], Coupled Rigid Block Analysis (CRA)[^3][^4], the Piecewise Rigid Displacement (PRD) method[^5], and Rigid Block Equilibrium[^6].
-- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD)[^7][^8][^9] and the Distinct/Discrete Element Method[^10][^11].
+- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA)[^2], Coupled Rigid Block Analysis (CRA)[^3], the Piecewise Rigid Displacement (PRD)[^4] method, and Rigid Block Equilibrium (RBE)[^5].
+- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD)[^6] and the Distinct/Discrete Element Method (DEM)[^7].
 
 Within the CARBCOMN pipeline, DEM is the third and final computational stage. It takes the block geometry produced by TNA and geometry generation as input and answers the central structural question: **given the geometry and the loads, do equilibrium contact forces exist that satisfy the no-tension, friction-limited conditions?**
 
@@ -77,7 +77,7 @@ $$
 
 The exact parameter set depends on the method — in particular on the shape of the friction cone and on whether the friction law is associative or non-associative. The Mohr–Coulomb parameters that define the cone, at minimum the friction angle $$ \phi $$, are required by all of the methods listed above.
 
-DEM additionally requires **joint stiffnesses**, because it is a *soft-contact* formulation[^10]: a small interpenetration is permitted at each contact, and the contact forces are derived from the penetration depth through a penalty law. The two stiffnesses are:
+DEM additionally requires **joint stiffnesses**, because it is a *soft-contact* formulation[^7]: a small interpenetration is permitted at each contact, and the contact forces are derived from the penetration depth through a penalty law. The two stiffnesses are:
 
 - $$ K_n $$ — normal stiffness, relating normal force to normal interpenetration;
 - $$ K_t $$ — tangential stiffness, relating shear force to relative tangential displacement until the friction limit is reached.
@@ -118,13 +118,8 @@ These are visualised in the `DEMViewer` as force vectors scaled to their magnitu
 
 [^1]: Heyman, J. (1966). The stone skeleton. *International Journal of Mechanical Sciences*, 8(4), 249–279.
 [^2]: Block, P. & Ochsendorf, J. (2007). Thrust network analysis: A new methodology for three-dimensional equilibrium. *Journal of the International Association for Shell and Spatial Structures*, 48(3), 167–173.
-[^3]: Kao, G.T.-C., Iannuzzo, A., Thomaszewski, B., Coros, S., Van Mele, T. & Block, P. (2022). Coupled Rigid-Block Analysis: Stability-Aware Design of Complex Discrete-Element Assemblies. *Computer-Aided Design*, 146, 103216.
-[^4]: Iannuzzo, A., Dell'Endice, A., Maia Avelino, R., Kao, G.T.-C., Van Mele, T. & Block, P. (2021). COMPAS Masonry: A computational framework for practical assessment of unreinforced masonry structures. *SAHC Symposium*, Barcelona.
-[^5]: Iannuzzo, A., Van Mele, T. & Block, P. (2020). Piecewise rigid displacement (PRD) method: A limit analysis-based approach to detect mechanisms and static admissible stress fields. *Mechanics Research Communications*, 107, 103557.
-[^6]: Kao, G.T.-C., Iannuzzo, A., Coros, S., Van Mele, T. & Block, P. (2021). Understanding the rigid-block equilibrium method by way of mathematical programming. *Proceedings of the Institution of Civil Engineers – Engineering and Computational Mechanics*.
-[^7]: Moreau, J.J. (1988). Unilateral contact and dry friction in finite freedom dynamics. In *Non-Smooth Mechanics and Applications*, CISM Courses and Lectures 302. Springer, Vienna, pp. 1–82.
-[^8]: Jean, M. (1999). The non-smooth contact dynamics method. *Computer Methods in Applied Mechanics and Engineering*, 177(3–4), 235–257.
-[^9]: Dubois, F., Acary, V. & Jean, M. (2018). The Contact Dynamics method: A nonsmooth story. *Comptes Rendus Mécanique*, 346, 247–262.
-[^10]: Cundall, P.A. (1971). A computer model for simulating progressive, large-scale movements in blocky rock systems. *Proceedings of the Symposium of the International Society of Rock Mechanics*, Nancy, Vol. 1, Paper II-8.
-[^11]: Cundall, P.A. & Strack, O.D.L. (1979). A discrete numerical model for granular assemblies. *Géotechnique*, 29(1), 47–65.
-[^12]: Lemos, J.V. (2007). Discrete element modeling of masonry structures. *International Journal of Architectural Heritage*, 1(2), 190–213.
+[^3]: Kao, G.T.-C., Iannuzzo, A., Thomaszewski, B., Coros, S., Van Mele, T. & Block, P. (2022). Coupled Rigid-Block Analysis: Stability-Aware Design of Complex Discrete-Element Assemblies. *Computer-Aided Design*, 146, 103216. — Iannuzzo, A., Dell'Endice, A., Maia Avelino, R., Kao, G.T.-C., Van Mele, T. & Block, P. (2021). COMPAS Masonry: A computational framework for practical assessment of unreinforced masonry structures. *SAHC Symposium*, Barcelona.
+[^4]: Iannuzzo, A., Van Mele, T. & Block, P. (2020). Piecewise rigid displacement (PRD) method: A limit analysis-based approach to detect mechanisms and static admissible stress fields. *Mechanics Research Communications*, 107, 103557.
+[^5]: Kao, G.T.-C., Iannuzzo, A., Coros, S., Van Mele, T. & Block, P. (2021). Understanding the rigid-block equilibrium method by way of mathematical programming. *Proceedings of the Institution of Civil Engineers – Engineering and Computational Mechanics*.
+[^6]: Moreau, J.J. (1988). Unilateral contact and dry friction in finite freedom dynamics. In *Non-Smooth Mechanics and Applications*, CISM Courses and Lectures 302. Springer, Vienna, pp. 1–82. — Jean, M. (1999). The non-smooth contact dynamics method. *Computer Methods in Applied Mechanics and Engineering*, 177(3–4), 235–257. — Dubois, F., Acary, V. & Jean, M. (2018). The Contact Dynamics method: A nonsmooth story. *Comptes Rendus Mécanique*, 346, 247–262.
+[^7]: Cundall, P.A. (1971). A computer model for simulating progressive, large-scale movements in blocky rock systems. *Proceedings of the Symposium of the International Society of Rock Mechanics*, Nancy, Vol. 1, Paper II-8. — Cundall, P.A. & Strack, O.D.L. (1979). A discrete numerical model for granular assemblies. *Géotechnique*, 29(1), 47–65.
