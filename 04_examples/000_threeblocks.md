@@ -7,7 +7,7 @@
 
 The simplest possible DEM test: **two base blocks supporting one block on top**. This workflow exists to validate the entire pipeline from geometry creation through to solver and result inspection, without any architectural or structural complexity getting in the way.
 
-<!-- [IMAGE PLACEHOLDER: Three-block model in viewer — two base blocks (red, supports) and one top block] -->
+![Three Blocks Model](../assets/images/04_examples/000/000_3_blocks_model.png)
 
 ## Concepts introduced
 
@@ -87,3 +87,6 @@ session.sync()
 ## What to observe
 
 After running `044_SW_Viz.py`, the total reaction force at the two support blocks should equal the self-weight of the top block. This is the simplest equilibrium check available in the pipeline and confirms that the solver, contact model, and material assignment are all working correctly.
+
+![Three Blocks Isometric Results](../assets/images/04_examples/000/000_3_blocks_iso.png)
+![Three Blocks Front Results](../assets/images/04_examples/000/000_3_blocks_results_front.png)

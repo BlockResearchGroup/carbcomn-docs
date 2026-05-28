@@ -9,8 +9,8 @@ This page summarises the practical trade-offs between the available solvers for 
 | License | Open-source (LMGC, Montpellier) | Open-source (BRG) | Open-source (BRG) | Commercial (Itasca) |
 | Formulation | NSCD (implicit) | Coupled equilibrium-kinematics | Direct equilibrium | DEM (explicit) |
 | Approach | Dynamic / quasi-static | Static | Static | Dynamic |
-| Mechanical parameters | $\mu$, restitution, density | $\mu$, density | $\mu$, density | $\mu$, joint stiffness, density, $E$, $G$ |
-| Max feasible assembly size (blocks) | $10^3$–$10^4$ | $10^1$–$10^2$ | $10^2$–$10^3$ | $10^3$–$10^4$ |
+| Mechanical parameters | $$ \mu $$, restitution, density | $$ \mu $$, density | $$ \mu $$, density | $$ \mu $$, joint stiffness, density, $$ E $$, $$ G $$ |
+| Max feasible assembly size (blocks) | $$ 10^3 $$–$$ 10^4 $$ | $$ 10^1 $$–$$ 10^2 $$ | $$ 10^2 $$–$$ 10^3 $$ | $$ 10^3 $$–$$ 10^4 $$ |
 | Computationally efficient | ◐ | ✗ | ✓ | ◐ |
 | Settlements / displacement capacity | ✓ | — | — | ✓ |
 | Deformable blocks | ◐ (not yet exposed in CARBCOMN) | — | — | ✓ |
