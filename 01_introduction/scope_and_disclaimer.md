@@ -1,16 +1,16 @@
-# Scope and Disclaimer
+# Scope
 
-## What this pipeline does — and what it does not
+## Usage of the pipeline and role in CARBCOMN
 
-The `carbcomn.core` pipeline is a **design and analysis tool**, not a design optimiser or a final structural verification platform. Its purpose is to enable researchers and engineers to:
+The `carbcomn.core` pipeline is a **design and analysis tool**, providing tools for structurally informed design optimisation and  verification. Its purpose is to enable researchers and engineers to:
 
 - Rapidly generate geometrically valid, structurally informed discretisations of the CARBCOMN floor system
 - Subject those discretisations to equilibrium analysis under gravity and imposed loads using state-of-the-art Discrete Element Method (DEM) solvers
 - Inspect and compare results across different geometries, block types, and solver configurations
 
-**The pipeline is a starting point for structural research, not an endpoint.**
+**The pipeline is a starting point for structural research and exploration.**
 
-Outputs from the pipeline — equilibrium geometries, contact force distributions, reaction vectors — are intended to seed further investigation: parameter studies, optimisation loops, sensitivity analyses, comparison against physical prototypes, and detailed finite element follow-up. The pipeline provides the necessary data to pose the right research questions; answering them requires engineering judgment and iterative work beyond what any software tool can automate.
+Outputs from the pipeline — equilibrium geometries, contact force distributions, reaction vectors — are intended to seed further investigation: parameter studies, optimisation loops, sensitivity analyses, comparison against physical prototypes, and detailed finite element follow-up.
 
 ## Current development status
 

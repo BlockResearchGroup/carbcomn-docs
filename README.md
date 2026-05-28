@@ -31,7 +31,7 @@ This documentation describes **`carbcomn.core`**, the core Python library implem
 | [Theory](02_theory/structural_principles.md)        | Structural principles behind compression-dominant floor systems, Thrust Network Analysis, Discrete Element Method |
 | [Pipeline Reference](03_pipeline/overview.md)       | Step-by-step description of the full TNA → Geometry → DEM pipeline                                                |
 | [Examples](04_examples/overview.md)                 | Six worked examples of increasing complexity, from a simple three-block test to the full CARBCOMN floor           |
-| [API Reference](/broken/pages/upo9rgTpPRfyDQAPP9Dq) | Documentation of all classes and functions in `carbcomn.core`                                                     |
+| [API Reference](05_api/overview.md) | Documentation of all classes and functions in `carbcomn.core`                                                     |
 | [Solvers](06_solvers/overview.md)                   | Description of the available DEM solvers and guidance on choosing between them                                    |
 | [Installation](installation.md)                     | Environment setup and installation instructions                                                                   |
 

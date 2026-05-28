@@ -2,11 +2,9 @@
 
 ## What is COMPAS?
 
-**COMPAS** is an open-source computational framework for research in architecture, engineering, and fabrication, developed at the Block Research Group (BRG) at ETH Zurich and collaborating institutions. It provides a software-agnostic, Python-based data backbone for geometric computation, data structures, and numerical methods, with interfaces to a wide range of external tools and solvers.
+**COMPAS** is an open-source computational framework for research in architecture, engineering, and fabrication, developed at the Block Research Group (BRG) at ETH Zurich and collaborating institutions[^1]. It provides a software-agnostic, Python-based data backbone for geometric computation, data structures, and numerical methods, with interfaces to a wide range of external tools and solvers.
 
 <!-- [IMAGE PLACEHOLDER: COMPAS ecosystem diagram — core + extension packages] -->
-
-> **Reference:** <!-- [REF: van_mele_2014] van Mele, T. et al. (2014). *COMPAS: A framework for computational research in architecture and structures.* [Add DOI/link] -->
 
 ## Why CARBCOMN uses COMPAS
 
@@ -44,9 +42,7 @@ The minimum stored representation at any level comprises:
 2. An interface connectivity graph (adjacency)
 3. A hierarchy tree encoding containment and dependencies
 
-This design allows lightweight representations to be used during design exploration, with high-resolution geometry computed only when needed for analysis or export.
-
-> **Reference:** <!-- [REF: compas_model] [Add compas_model package reference] -->
+This design allows lightweight representations to be used during design exploration, with high-resolution geometry computed only when needed for analysis or export[^2].
 
 ## COMPAS JSON serialisation
 
@@ -55,3 +51,6 @@ All CARBCOMN pipeline data — geometry, model objects, analysis results — is 
 This is the mechanism behind the `WorkflowSession`: when `session.sync()` is called, it calls `compas.json_dump()` on each stored object, which recursively serialises the full object graph to a single JSON file. Reading back with `compas.json_load()` reconstructs the original Python objects with their correct types.
 
 > **See also:** [Session & Parameter Management](../03_pipeline/session.md)
+
+[^1]: Van Mele, T., Liew, A., Méndez Echenagucia, T., Dell'Endice, A., Pastrana, R., Doménech-Rodríguez, C., Huang, S., Paulson, N., Ranaudo, F., Joris, I., Carneau, P., Bürgin, T., Ongaro, G., Cagan, D., & Iszatt, J. (2022). *COMPAS: A framework for computational research in architecture and structures*. ETH Zürich. https://doi.org/10.5281/zenodo.7317703
+[^2]: Van Mele, T. et al. (2023). *compas_model: A hierarchical data model for assemblies and structures*. Block Research Group, ETH Zürich. https://github.com/BlockResearchGroup/compas_model
