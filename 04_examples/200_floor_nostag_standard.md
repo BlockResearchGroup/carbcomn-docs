@@ -7,7 +7,7 @@
 
 A flat barrel-vault floor (**6 m × 7.5 m**) built from a regular grid of plain `StandardBlock` voussoirs with no stagger between columns. This is the first workflow to exercise the **full TNA → geometry → DEM chain** for a real floor geometry.
 
-<!-- [IMAGE PLACEHOLDER: Flat barrel-vault floor in viewer — block grid, no stagger, RefMesh surface in green] -->
+![Floor No-Stagger 3D View](../assets/images/04_examples/002/Floor_3D.png)
 
 ## Concepts introduced
 
@@ -58,3 +58,6 @@ params = {
 After running `210_tna.py`, inspect the `RefMesh` in the viewer. The surface should be a smooth barrel vault whose curvature is determined by the force density distribution: higher force density on the rib edges → more curved surface.
 
 After running `241_dem_problem.py` and opening `242_dem_viz.py`, the contact force vectors should confirm that all forces are compressive and that the force flow follows the ribs of the vault.
+
+![Floor No-Stagger 3D Results Isometric](../assets/images/04_examples/002/Floor_Result_Iso.png)
+![Floor No-Stagger 3D Results Front](../assets/images/04_examples/002/Floor_Result_Front.png)

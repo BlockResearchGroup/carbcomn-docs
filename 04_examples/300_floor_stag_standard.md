@@ -7,7 +7,7 @@
 
 Same floor geometry as `200`, but with **running-bond stagger** between vault columns and the vault embedded in a surrounding structural frame of columns and tie-beams. This is the first workflow to use the full `FloorModel` assembly.
 
-<!-- [IMAGE PLACEHOLDER: Running-stagger floor with structural frame in viewer — columns, tie-beams, vault blocks] -->
+![Floor Stagger 3D View](../assets/images/04_examples/003/Floor_3D.png)
 
 ## Concepts introduced
 
@@ -37,3 +37,6 @@ Same floor geometry as `200`, but with **running-bond stagger** between vault co
 Comparing this workflow against `200` shows the effect of stagger on the inter-column contact pattern. With running bond, contacts between adjacent columns are staggered and provide more effective interlocking under differential loading.
 
 After running `351_model_floor.py`, inspect the full `FloorModel` contact graph. The tie-beam–voussoir contacts at the support interfaces should be clearly visible. The `TrimModifier` ensures these contacts are clean polygons without spurious overlaps.
+
+![Floor Stagger 3D Results Isometric](../assets/images/04_examples/003/Floor_Result_Iso.png)
+![Floor Stagger 3D Results Front](../assets/images/04_examples/003/Floor_Result_Front.png)
