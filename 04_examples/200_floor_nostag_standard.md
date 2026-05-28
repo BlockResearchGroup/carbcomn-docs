@@ -59,4 +59,6 @@ After running `210_tna.py`, inspect the `RefMesh` in the viewer. The surface sho
 
 After running `241_dem_problem.py` and opening `242_dem_viz.py`, the contact force vectors should confirm that all forces are compressive and that the force flow follows the ribs of the vault.
 
-![Floor No-Stagger 3D Results Isometric](../.gitbook/assets/Floor_Result_Iso.png) ![Floor No-Stagger 3D Results Front](../.gitbook/assets/Floor_Result_Front.png)
+<figure><img src="../.gitbook/assets/Floor_Result_Iso.png" alt="Floor No-Stagger 3D Results Isometric"></figure>
+
+<figure><img src="../.gitbook/assets/Floor_Result_Front.png" alt="Floor No-Stagger 3D Results Front"></figure>

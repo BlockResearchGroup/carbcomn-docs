@@ -37,3 +37,7 @@ Same floor geometry as `200`, but with **running-bond stagger** between vault co
 Comparing this workflow against `200` shows the effect of stagger on the inter-column contact pattern. With running bond, contacts between adjacent columns are staggered and provide more effective interlocking under differential loading.
 
 After running `351_model_floor.py`, inspect the full `FloorModel` contact graph. The tie-beam–voussoir contacts at the support interfaces should be clearly visible. The `TrimModifier` ensures these contacts are clean polygons without spurious overlaps.
+
+<figure><img src="../.gitbook/assets/Floor_Result_Iso.png" alt="Floor Stagger 3D Results Isometric"></figure>
+
+<figure><img src="../.gitbook/assets/Floor_Result_Front.png" alt="Floor Stagger 3D Results Front"></figure>
