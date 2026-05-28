@@ -64,9 +64,8 @@ In the viewer, support blocks are shown in red and non-support blocks in light g
 ![DEM Contact Graph and Polygons](../assets/images/03_pipeline/dem_contact_polygons_graph.png)
 
 
-## Degenerate contacts
+## Supports
 
-Contacts which lose one or more contact points are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly.
-In the current implementation, only dynamic solvers can have degenerate contacts.
+Each block has an `is_support` attribute that flags it as a boundary condition. Support blocks are held fixed during analysis; the flag is carried through into the problem definition automatically.
 
 > **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_theory/discrete_element_method.md)
