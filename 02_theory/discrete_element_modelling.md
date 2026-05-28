@@ -23,7 +23,7 @@ The rigid block assumption is appropriate for early-stage assessment of the CARB
 
 ### Block equilibrium
 
-Independently of the solver, every BBM enforces the same physical principle: each block satisfies the Newton–Euler equations under the combined action of external loads (gravity, applied forces) and the contact forces transmitted by its neighbours. For a block $i$ of mass $m_i$ and inertia tensor $$\mathbf{I}_i$$:
+Independently of the solver, every BBM enforces the same physical principle: each block satisfies the Newton–Euler equations under the combined action of external loads (gravity, applied forces) and the contact forces transmitted by its neighbours. For a block $$ i $$ of mass $$ m_i $$ and inertia tensor $$ \mathbf{I}_i $$:
 
 $$
 m_i \ddot{\mathbf{x}}_i
@@ -37,11 +37,11 @@ $$
 + \sum_{c \in \mathcal{C}_i} \mathbf{M}_i^{c}
 $$
 
-where $\mathcal{C}_i$ is the set of contacts shared with neighbouring blocks, $\mathbf{F}_i^{c}$ and $\mathbf{M}_i^{c}$ are the force and moment transmitted across contact $c$, and $\mathbf{x}_i$, $\boldsymbol{\omega}_i$ are the position of the centroid and the angular velocity of the block.
+where $$ \mathcal{C}_i $$ is the set of contacts shared with neighbouring blocks, $$ \mathbf{F}_i^{c} $$ and $$ \mathbf{M}_i^{c} $$ are the force and moment transmitted across contact $$ c $$, and $$ \mathbf{x}_i $$, $$ \boldsymbol{\omega}_i $$ are the position of the centroid and the angular velocity of the block.
 
-The contact forces $\mathbf{F}_i^c$ come in action–reaction pairs, where contact $c$ is shared between exactly two blocks, so Newton's third law requires that if block $i$ receives $\mathbf{F}_i^c$, its neighbour $j$ receives $\mathbf{F}_j^c = -\mathbf{F}_i^c$ and the corresponding moment about its own centroid. Beyond this pairing, each contact force is physically constrained: it must be compressive (no tension across the joint), and its tangential component cannot exceed the friction limit. These constraints are formalised in the next section and, together with the Newton–Euler equations above, fully determine the problem.
+The contact forces $$ \mathbf{F}_i^c $$ come in action–reaction pairs, where contact $$ c $$ is shared between exactly two blocks, so Newton's third law requires that if block $$ i $$ receives $$ \mathbf{F}_i^c $$, its neighbour $$ j $$ receives $$ \mathbf{F}_j^c = -\mathbf{F}_i^c $$ and the corresponding moment about its own centroid. Beyond this pairing, each contact force is physically constrained: it must be compressive (no tension across the joint), and its tangential component cannot exceed the friction limit. These constraints are formalised in the next section and, together with the Newton–Euler equations above, fully determine the problem.
 
-Equilibrium of the assembly thus reduces to finding contact forces $\{\mathbf{F}_i^c\}$ and block configurations $\{\mathbf{x}_i, \boldsymbol{\theta}_i\}$ that simultaneously satisfy:
+Equilibrium of the assembly thus reduces to finding contact forces $$ \{\mathbf{F}_i^c\} $$ and block configurations $$ \{\mathbf{x}_i, \boldsymbol{\theta}_i\} $$ that simultaneously satisfy:
 
 1. **Newton–Euler equations** on every block (force and moment balance);
 2. **Newton's third law** at every contact (equal and opposite forces);
@@ -51,22 +51,21 @@ Equilibrium of the assembly thus reduces to finding contact forces $\{\mathbf{F}
 
 At the heart of every BBM lies a contact detection algorithm that identifies the shared faces between adjacent blocks – the same faces where the structural response is resolved. Whether stated explicitly or enforced implicitly through the solver, two contact conditions must hold at each interface:
 
+### 1. No-tension (Signorini) condition
 
-#### 1. No-tension (Signorini) condition
-
-Masonry joints cannot transmit tension. The normal contact force $F_n$ at any interface must be non-negative (compressive convention):
+Masonry joints cannot transmit tension. The normal contact force $$ F_n $$ at any interface must be non-negative (compressive convention):
 
 $$F_n \geq 0$$
 
-If the equilibrium solution would require $F_n < 0$ at some interface, that contact opens and the blocks separate. A structure for which no equilibrium solution with $F_n \geq 0$ everywhere exists is **not in equilibrium** and would collapse.
+If the equilibrium solution would require $$ F_n < 0 $$ at some interface, that contact opens and the blocks separate. A structure for which no equilibrium solution with $$ F_n \geq 0 $$ everywhere exists is **not in equilibrium** and would collapse.
 
-#### 2. Mohr–Coulomb friction condition
+### 2. Mohr–Coulomb friction condition
 
-The tangential (shear) force at a contact is bounded by Coulomb friction. The resultant tangential force $F_t = \sqrt{F_{t1}^2 + F_{t2}^2}$ must satisfy
+The tangential (shear) force at a contact is bounded by Coulomb friction. The resultant tangential force $$ F_t = \sqrt{F_{t1}^2 + F_{t2}^2} $$ must satisfy
 
 $$F_t \leq c\,A + \mu F_n,$$
 
-where $c$ is the cohesion, $A$ the contact area, and $\mu = \tan\phi$ the friction coefficient (with $\phi$ the friction angle). Typical dry-masonry values are $\phi = 28$–$35°$; for mortarless joints, $c = 0$.
+where $$ c $$ is the cohesion, $$ A $$ the contact area, and $$ \mu = \tan\phi $$ the friction coefficient (with $$ \phi $$ the friction angle). Typical dry-masonry values are $$ \phi = 28 $$–$$ 35° $$; for mortarless joints, $$ c = 0 $$.
 
 Together, the no-tension and friction conditions define the **friction cone** at each contact: admissible contact forces lie within
 
@@ -75,13 +74,12 @@ F_{t1}^2 + F_{t2}^2 \leq \mu^2 F_n^2 \}$$
 
 ### Contact parameters
 
-The exact parameter set depends on the method — in particular on the shape of the friction cone and on whether the friction law is associative or non-associative. The Mohr–Coulomb parameters that define the cone, at minimum the friction angle $\phi$, are required by all of the methods listed above.
+The exact parameter set depends on the method — in particular on the shape of the friction cone and on whether the friction law is associative or non-associative. The Mohr–Coulomb parameters that define the cone, at minimum the friction angle $$ \phi $$, are required by all of the methods listed above.
 
 DEM additionally requires **joint stiffnesses**, because it is a *soft-contact* formulation[^cundall1971]: a small interpenetration is permitted at each contact, and the contact forces are derived from the penetration depth through a penalty law. The two stiffnesses are:
 
-- $K_n$ — normal stiffness, relating normal force to normal interpenetration;
-- $K_t$ — tangential stiffness, relating shear force to relative tangential
-displacement until the friction limit is reached.
+- $$ K_n $$ — normal stiffness, relating normal force to normal interpenetration;
+- $$ K_t $$ — tangential stiffness, relating shear force to relative tangential displacement until the friction limit is reached.
 
 Static methods and Contact Dynamics, by contrast, treat the contact as rigid (no interpenetration) and do not require these stiffness parameters.
 
@@ -89,12 +87,12 @@ Static methods and Contact Dynamics, by contrast, treat the contact as rigid (no
 
 A block-based analysis answers the central stability question by returning two coupled fields, defined on different parts of the model:
 
-**Block displacements and rotations.** For each block $i$, the analysis returns a rigid-body displacement $\mathbf{u}_i$ and rotation $\boldsymbol{\theta}_i$ from the reference configuration — six values per block in 3D. For a structure that is stable under the applied loads these are small (ideally zero, up to numerical tolerance); they grow without bound and identify a collapse mechanism when the structure is not. The pattern of non-zero block displacements is what reveals *how* a structure fails: which blocks form the moving part of the mechanism, where hinges open, and which contacts slide.
+**Block displacements and rotations.** For each block $$ i $$, the analysis returns a rigid-body displacement $$ \mathbf{u}_i $$ and rotation $$ \boldsymbol{\theta}_i $$ from the reference configuration — six values per block in 3D. For a structure that is stable under the applied loads these are small (ideally zero, up to numerical tolerance); they grow without bound and identify a collapse mechanism when the structure is not. The pattern of non-zero block displacements is what reveals *how* a structure fails: which blocks form the moving part of the mechanism, where hinges open, and which contacts slide.
 
 
-**Contact forces at interfaces.** For each contact $c$ between two blocks,
-the analysis returns the normal force $F_n^c$, the two tangential
-components $F_{t1}^c, F_{t2}^c$, and the resultant moment, all expressed in
+**Contact forces at interfaces.** For each contact $$ c $$ between two blocks,
+the analysis returns the normal force $$ F_n^c $$, the two tangential
+components $$ F_{t1}^c, F_{t2}^c $$, and the resultant moment, all expressed in
 the local frame of the contact. Aggregated across all contacts, these form
 the **internal force network** of the structure: the discrete analogue of
 a stress field in continuum mechanics, and the direct generalisation of
@@ -108,8 +106,8 @@ information are read off it routinely:
   contact polygon — indicates how close a joint is to opening. A resultant
   near the edge of the contact face means the joint is on the verge of
   forming a hinge.
-- *Active vs inactive contacts.* Contacts where $F_n^c = 0$ have opened;
-  contacts where $|F_t^c| = \mu F_n^c$ are sliding. The set of inactive
+- *Active vs inactive contacts.* Contacts where $$ F_n^c = 0 $$ have opened;
+  contacts where $$ |F_t^c| = \mu F_n^c $$ are sliding. The set of inactive
   contacts is the crack pattern of the assembly.
 
 

@@ -25,7 +25,7 @@ rbe    = Solver.RBE()
 
 LMGC90 is an open-source contact mechanics framework developed at Université de Montpellier / CNRS, designed for problems where many bodies interact through contact and friction. It can handle granular media, masonry structures, jointed rock, and similar assemblies. Its main feature is the underlying Non-Smooth Contact Dynamics (NSCD) method[^moreau1988][^jean1999][^dubois2018], in which Signorini's non-penetration condition is imposed as an exact mathematical constraint. The practical consequence is that LMGC90 takes large time steps and stays stable through violent impacts and persistent dense contact.
 
-LMGC90 is broader than just NSCD: its general framework exposes all combinations of contact law (smooth or non-smooth) and integration scheme (explicit or implicit). For non-smooth contact, the integration scheme is selected smoothly through a θ-integrator — $\theta = 0$ is fully explicit, $\theta = 1$ is fully implicit. This is backed by an extensive catalog of about 25 interaction laws covering both smooth and non-smooth models. The framework supports rigid and FEM-deformable bodies in the same simulation, scales to tens of thousands of bodies, and is the most capable open-source contact solver in the CARBCOMN pipeline for masonry and dense block-assembly problems.
+LMGC90 is broader than just NSCD: its general framework exposes all combinations of contact law (smooth or non-smooth) and integration scheme (explicit or implicit). For non-smooth contact, the integration scheme is selected smoothly through a θ-integrator — $$ \theta = 0 $$ is fully explicit, $$ \theta = 1 $$ is fully implicit. This is backed by an extensive catalog of about 25 interaction laws covering both smooth and non-smooth models. The framework supports rigid and FEM-deformable bodies in the same simulation, scales to tens of thousands of bodies, and is the most capable open-source contact solver in the CARBCOMN pipeline for masonry and dense block-assembly problems.
 
 **Capabilities**:
 
@@ -50,7 +50,7 @@ Result quality depends on the interaction law, the number of NLGS iterations (co
 **License**: Commercial (Itasca Consulting Group)
 **Status**: Available via `Solver.3DEC()` with a valid license
 
-3DEC (3 Dimensional Distinct Element Code) is Itasca's commercial implementation of the Distinct Element Method, originally developed by Peter Cundall. It is designed for problems where a system of blocky bodies interact through joints and contact surfaces. It is widely used in jointed rock mechanics, mining, tunneling, slope stability, rock caverns, and large masonry analysis. Its main feature is the underlying Distinct Element Method[^cundall1971][^cundallhart1992], in which contact between blocks is modeled through penalty springs at the joint interfaces — each contact is represented by a normal stiffness $k_n​$, a shear stiffness $k_s$​, and a constitutive law governing slip and separation. 3DEC uses a velocity-Verlet **explicit integration** scheme.
+3DEC (3 Dimensional Distinct Element Code) is Itasca's commercial implementation of the Distinct Element Method, originally developed by Peter Cundall. It is designed for problems where a system of blocky bodies interact through joints and contact surfaces. It is widely used in jointed rock mechanics, mining, tunneling, slope stability, rock caverns, and large masonry analysis. Its main feature is the underlying Distinct Element Method[^cundall1971][^cundallhart1992], in which contact between blocks is modeled through penalty springs at the joint interfaces — each contact is represented by a normal stiffness $$ k_n $$, a shear stiffness $$ k_s $$, and a constitutive law governing slip and separation. 3DEC uses a velocity-Verlet **explicit integration** scheme.
 
 3DEC's strength lies in its optimised algorithms, extensive catalog of joint constitutive models, such as Coulomb slip, continuously-yielding, Barton-Bandis, and other rock-specific laws, combined with fully deformable block support, where each block can be internally zoned with a FEM mesh and assigned a bulk constitutive model (elastic, Mohr-Coulomb, strain-softening, etc.).
 
@@ -67,7 +67,7 @@ The framework supports rigid and deformable blocks, handles seismic and blast lo
 **Distinct Element simulations** are governed by three main choices:
 
 - Joint constitutive model — selects the physics at the interface (Coulomb, Barton-Bandis, continuously-yielding, etc.)
-- Joint stiffnesses ($k_n$​, $k_s$) — set the penalty stiffness controlling penetration and shear response.
+- Joint stiffnesses ($$ k_n $$, $$ k_s $$) — set the penalty stiffness controlling penetration and shear response.
 - Time step — bounded by the stability condition for the explicit integrator
 
 Result quality depends on the joint constitutive model (which physics is captured at the interface), the choice of joint stiffnesses (which trade off interpenetration against numerical stability), and the time step (small enough for stability and accuracy, large enough for tractable run times).
@@ -97,7 +97,7 @@ CRA is implemented in Python using Pyomo and the IPOPT nonlinear solver, integra
 - Penalty formulation localizes unstable regions in infeasible assemblies
 - Supports rigid blocks with frictional contact and no-tension joints
 
-CRA analysis are mainly governed by the friction coefficient ($\mu$) and the optimisation parameters.
+CRA analysis are mainly governed by the friction coefficient ($$ \mu $$) and the optimisation parameters.
 
 Result quality depends on the geometric accuracy of the block assembly (contact normals, contact points, interface discretization), the friction coefficient, and the convergence behavior of the nonlinear solver. Computational cost scales rapidly with assembly size: small assemblies solve in seconds; a 399-block model like the Armadillo Vault takes around 40 minutes[^kao2022].
 

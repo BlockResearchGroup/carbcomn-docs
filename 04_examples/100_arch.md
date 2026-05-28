@@ -7,7 +7,7 @@
 
 A **semi-circular arch of ten voussoirs**. This workflow introduces the `ArchTemplate` for parametric geometry generation, the `MohrCoulomb` friction contact model, and **support displacement load cases** for driving the arch toward its minimum and maximum thrust states.
 
-<!-- [IMAGE PLACEHOLDER: Arch model in viewer — ten voussoirs, first and last as supports (red)] -->
+![Arch 3D View](../assets/images/04_examples/001/Arch_Blocks.png)
 
 ## Concepts introduced
 
@@ -75,4 +75,5 @@ Running `141` and `142` with two different solvers and comparing their contact f
 
 Running `144` and `145` (max/min thrust) shows the arch approaching its geometric limits: at minimum thrust the arch is about to open at the crown and haunches; at maximum thrust it is about to slide at the supports. These correspond to the classical failure mechanisms of masonry arches described by Heyman (1966).
 
-<!-- [IMAGE PLACEHOLDER: Arch at min thrust and max thrust states — DEMViewer showing displaced blocks and force vectors] -->
+![Arch 3D Results Iso](../assets/images/04_examples/001/Arch_Results_Iso.png)
+![Arch 3D Results Front](../assets/images/04_examples/001/Arch_Results_Front.png)
