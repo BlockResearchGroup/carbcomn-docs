@@ -23,7 +23,7 @@ The rigid block assumption is appropriate for early-stage assessment of the CARB
 
 ### Block equilibrium
 
-Independently of the solver, every BBM enforces the same physical principle: each block satisfies the Newton–Euler equations under the combined action of external loads (gravity, applied forces) and the contact forces transmitted by its neighbours. For a block $i$ of mass $m_i$ and inertia tensor $\mathbf{I}_i$:
+Independently of the solver, every BBM enforces the same physical principle: each block satisfies the Newton–Euler equations under the combined action of external loads (gravity, applied forces) and the contact forces transmitted by its neighbours. For a block $i$ of mass $m_i$ and inertia tensor $$\mathbf{I}_i$$:
 
 $$
 m_i \ddot{\mathbf{x}}_i
