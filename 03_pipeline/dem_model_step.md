@@ -6,7 +6,7 @@
 
 ## Purpose
 
-The DEM model step assembles all block elements into a `BlockModel` and **computes the contact interfaces** between adjacent blocks. The result is a complete discrete-element model — a contact graph where nodes represent blocks and edges represent detected contact interfaces — ready to be handed to a solver.
+The DEM model step assembles all block elements into a `BlockModel` and **computes the contact interfaces** between adjacent blocks. The result is a complete discrete-element model, with the mesh block elements and their contact interfaces stored in a contact graph, where nodes represent blocks and edges represent detected interfaces.
 
 ## Building the BlockModel
 
@@ -36,13 +36,13 @@ model.compute_contacts()
 
 ## Contact detection
 
-`model.compute_contacts()` performs a geometric search over all block pairs to find adjacent blocks and compute their shared interface geometry. For each detected contact it:
+`model.compute_contacts()` performs a geometric search over all block pairs to find adjacent blocks and compute their shared interface geometry. For each detected contact:
 
-1. Identifies the **type** of contact: face-to-face (a polygon) or edge-to-edge (a degenerate line contact)
-2. Computes the **common interface polygon** — the intersection of the two adjacent block faces
-3. Discretises the interface into **contact points** where forces are applied and resolved
+1. The contact type is identified: Currently only face-to-face (a polygon) contacts are detected inside COMPAS.
+2. The shared interface polygon is computed from the intersection of the two adjacent block faces
+3. The interface is discretised into contact points where forces are applied and resolved
 
-The contact graph is stored on `model.graph`: each node corresponds to a block element and each edge corresponds to a detected contact interface.
+The contact graph is stored on `model.graph`.
 
 ## Inspecting the contact graph
 
@@ -61,7 +61,8 @@ for contact in model.contacts():
 
 In the viewer, support blocks are shown in red and non-support blocks in light grey. Contact polygons are shown in cyan. The contact graph edges are shown as magenta lines connecting block centroids.
 
-<!-- [IMAGE PLACEHOLDER: BlockModel viewer showing blocks, contact polygons (cyan), and graph edges (magenta)] -->
+![DEM Contact Graph and Polygons](../assets/images/03_pipeline/dem_contact_polygons_graph.png)
+
 
 ## Degenerate contacts
 
