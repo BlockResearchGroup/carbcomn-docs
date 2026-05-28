@@ -1,30 +1,30 @@
-# Table of Contents
+# Table of contents
 
 ## Introduction
 
-* [Overview](README.md) (Daniele)
-* [Project Context](01_introduction/project_context.md) (Daniele)
-* [Pipeline Overview](01_introduction/pipeline_overview.md) (Daniele) (**REF for images**)
-* [Scope and Disclaimer](01_introduction/scope_and_disclaimer.md) (Daniele)
+* [Overview](README.md)
+* [Project Context](01_introduction/project_context.md)
+* [Pipeline Overview](01_introduction/pipeline_overview.md)
+* [Scope and Disclaimer](01_introduction/scope_and_disclaimer.md)
 
 ## Background
 
-* [Structural System](02_theory/structural_principles.md) (Daniele/Baraa)
-* [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md) (**Baraa**/Ale/Ricardo)
+* [Structural System](02_theory/structural_principles.md)
+* [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md)
 * [Discrete Element Modeling (DEM)](02_theory/discrete_element_modelling.md)
-* [COMPAS Framework](02_theory/compas_framework.md) (All)
-* [CARBCOMN.core Architecture](02_theory/carbcomn_core_architecture.md) (**Daniele**)
+* [COMPAS Framework](02_theory/compas_framework.md)
+* [CARBCOMN.core Architecture](02_theory/carbcomn_core_architecture.md)
 
 ## Pipeline Reference (Review and Images)
 
-* [Pipeline Architecture](03_pipeline/overview.md) (Daniele/Baraa)
-* [Session & Parameter Management](03_pipeline/session.md) (Daniele/Baraa)
-* [Step 1 — TNA Form-Finding](03_pipeline/tna_step.md) (Daniele/Baraa)
-* [Step 2 — Block Geometry Generation](03_pipeline/geometry_step.md) (Daniele/Baraa)
-* [Step 3 — RefBlock & Element Typing](03_pipeline/refblock_step.md) (Daniele/Baraa)
-* [Step 4 — DEM Model Assembly](03_pipeline/dem_model_step.md) (Daniele/Baraa)
-* [Step 5 — DEM Problem & Solvers](03_pipeline/dem_problem_step.md) (Daniele/Baraa)
-* [Step 6 — Structural Frame & Floor Assembly](03_pipeline/floor_assembly_step.md) (Daniele/Baraa)
+* [Pipeline Architecture](03_pipeline/overview.md)
+* [Session & Parameter Management](03_pipeline/session.md)
+* [Step 1 — TNA Form-Finding](03_pipeline/tna_step.md)
+* [Step 2 — Block Geometry Generation](03_pipeline/geometry_step.md)
+* [Step 3 — RefBlock & Element Typing](03_pipeline/refblock_step.md)
+* [Step 4 — DEM Model Assembly](03_pipeline/dem_model_step.md)
+* [Step 5 — DEM Problem & Solvers](03_pipeline/dem_problem_step.md)
+* [Step 6 — Structural Frame & Floor Assembly](03_pipeline/floor_assembly_step.md)
 
 ## Examples
 
@@ -38,8 +38,8 @@
 
 ## Solvers
 
-* [Solver Overview](06_solvers/overview.md) (**Baraa**)
-* [Solver Comparison](06_solvers/solver_comparison.md) (**Baraa**) 
+* [Solver Overview](06_solvers/overview.md)
+* [Solver Comparison](06_solvers/solver_comparison.md)
 
 ## Appendix
 

@@ -1,7 +1,7 @@
 # Step 5 — DEM Problem & Solvers
 
-**Script prefix:** `X41`  
-**Session inputs:** `session["blockmodel"]`  
+**Script prefix:** `X41`\
+**Session inputs:** `session["blockmodel"]`\
 **Session outputs:** `session["blockmodel_results"]`
 
 ## Purpose
@@ -37,12 +37,12 @@ session.sync()
 
 ## The contact model
 
-The `MohrCoulomb` contact model encodes the friction constraints described in the [DEM Theory section](../02_theory/discrete_element_method.md):
+The `MohrCoulomb` contact model encodes the friction constraints described in the [DEM Theory section](../02_theory/discrete_element_modelling.md):
 
-| Parameter | Description | Typical value |
-|-----------|-------------|---------------|
-| `phi` | Friction angle [degrees] | 30–40° for dry masonry |
-| `c` | Cohesion [kPa] | 0 for dry joints; > 0 for mortared joints |
+| Parameter | Description               | Typical value                             |
+| --------- | ------------------------- | ----------------------------------------- |
+| `phi`     | Friction angle \[degrees] | 30–40° for dry masonry                    |
+| `c`       | Cohesion \[kPa]           | 0 for dry joints; > 0 for mortared joints |
 
 Setting `c=0` and `phi=35°` represents a **dry joint** with moderate friction — appropriate for the CARBCOMN system where blocks are held in place by geometry and post-tension rather than mortar.
 
@@ -85,8 +85,8 @@ See [Solver Overview](../06_solvers/overview.md) for a full comparison.
 
 After solving, results are stored on the model graph:
 
-- **Edge data** — contact force vectors $(F_n, F_{t1}, F_{t2})$ at each contact interface
-- **Node data** — displacement of each block after solving (rigid-body displacement if blocks have moved)
+* **Edge data** — contact force vectors $(F\_n, F\_{t1}, F\_{t2})$ at each contact interface
+* **Node data** — displacement of each block after solving (rigid-body displacement if blocks have moved)
 
 ```python
 for u, v, contact in model.graph.edges(data=True):
@@ -95,4 +95,4 @@ for u, v, contact in model.graph.edges(data=True):
     ft2 = contact["Ft2"]   # tangential force component 2 [N]
 ```
 
-> **See also:** [Step 6 — DEM Visualisation is handled in example pages], [Solver Overview](../06_solvers/overview.md), [DEM Theory](../02_theory/discrete_element_method.md)
+> **See also:** \[Step 6 — DEM Visualisation is handled in example pages], [Solver Overview](../06_solvers/overview.md), [DEM Theory](../02_theory/discrete_element_modelling.md)

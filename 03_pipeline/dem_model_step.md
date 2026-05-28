@@ -1,7 +1,7 @@
 # Step 4 — DEM Model Assembly
 
-**Script prefix:** `X40`  
-**Session inputs:** `session["block_elements"]` (typed workflows) or `session["block_meshes"]` (standard-block workflows)  
+**Script prefix:** `X40`\
+**Session inputs:** `session["block_elements"]` (typed workflows) or `session["block_meshes"]` (standard-block workflows)\
 **Session outputs:** `session["blockmodel"]`
 
 ## Purpose
@@ -61,11 +61,8 @@ for contact in model.contacts():
 
 In the viewer, support blocks are shown in red and non-support blocks in light grey. Contact polygons are shown in cyan. The contact graph edges are shown as magenta lines connecting block centroids.
 
-<!-- [IMAGE PLACEHOLDER: BlockModel viewer showing blocks, contact polygons (cyan), and graph edges (magenta)] -->
-
 ## Degenerate contacts
 
-Contacts which lose one or more contact points are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly.
-In the current implementation, only dynamic solvers can have degenerate contacts.
+Contacts which lose one or more contact points are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly. In the current implementation, only dynamic solvers can have degenerate contacts.
 
-> **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_theory/discrete_element_method.md)
+> **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_theory/discrete_element_modelling.md)

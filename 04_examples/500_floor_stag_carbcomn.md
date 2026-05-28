@@ -1,33 +1,33 @@
 # 500 — Floor, Running Stagger, CARBCOMN Voussoirs
 
-**Session name:** `FloorStagCarbcomnTest`  
+**Session name:** `FloorStagCarbcomnTest`\
 **Folder:** `examples/workflows/testing_dem/500_floor_stag_carbcomn/`
 
 ## Goal
 
 The most complete workflow in the current pipeline. It replaces the ridge voussoirs on selected columns with **`CarbcomnVoussoir` elements** — the project's signature block geometry, featuring an intrados slot and a post-tensioning cable channel. This workflow represents the **full CARBCOMN design pipeline** as currently implemented.
 
-![CARBCOMN Voussoir 3D View](../assets/images/04_examples/005/Floor_Belly.png)
+![CARBCOMN Voussoir 3D View](../.gitbook/assets/Floor_Belly.png)
 
 ## Concepts introduced
 
-- **`CarbcomnVoussoir`** — the complete CARBCOMN element: intrados ridge + slot + post-tensioning cable channel, parameterised by `intrados_halfwidth`, `cable_halfwidth`, `wall_resolution`
-- **Full pipeline integration** — the `CarbcomnVoussoir` geometry is handled by the same `BlockModel` + `FloorModel` assembly chain as simpler workflows, demonstrating the element abstraction is solver-agnostic
-- **Additional element parameters** — the `params["elements"]` dict includes CARBCOMN-specific geometry parameters alongside the standard column/beam dimensions
+* **`CarbcomnVoussoir`** — the complete CARBCOMN element: intrados ridge + slot + post-tensioning cable channel, parameterised by `intrados_halfwidth`, `cable_halfwidth`, `wall_resolution`
+* **Full pipeline integration** — the `CarbcomnVoussoir` geometry is handled by the same `BlockModel` + `FloorModel` assembly chain as simpler workflows, demonstrating the element abstraction is solver-agnostic
+* **Additional element parameters** — the `params["elements"]` dict includes CARBCOMN-specific geometry parameters alongside the standard column/beam dimensions
 
 ## Workflow steps
 
-| Script | Stage | Description |
-|--------|-------|-------------|
-| `500_init.py` | X00 Init | Parameters + CARBCOMN element geometry params |
-| `510_tna.py` | X10 TNA | Same as `410` |
-| `520_geometry.py` | X20 Geometry | `FlatBarrelTemplate` |
-| `530_refblock.py` | X30 RefBlock | Assign `CarbcomnVoussoir` to feature cols |
-| `540_dem_model.py` | X40 DEM Model | `BlockModel` from typed elements |
-| `541_dem_problem.py` | X41 DEM Problem | Solve |
-| `542_dem_viz.py` | X42 Visualisation | View DEM results |
-| `550_model_grid.py` | X50 Structural Grid | Frame |
-| `551_model_floor.py` | X51 Floor Assembly | Full `FloorModel` |
+| Script               | Stage               | Description                                   |
+| -------------------- | ------------------- | --------------------------------------------- |
+| `500_init.py`        | X00 Init            | Parameters + CARBCOMN element geometry params |
+| `510_tna.py`         | X10 TNA             | Same as `410`                                 |
+| `520_geometry.py`    | X20 Geometry        | `FlatBarrelTemplate`                          |
+| `530_refblock.py`    | X30 RefBlock        | Assign `CarbcomnVoussoir` to feature cols     |
+| `540_dem_model.py`   | X40 DEM Model       | `BlockModel` from typed elements              |
+| `541_dem_problem.py` | X41 DEM Problem     | Solve                                         |
+| `542_dem_viz.py`     | X42 Visualisation   | View DEM results                              |
+| `550_model_grid.py`  | X50 Structural Grid | Frame                                         |
+| `551_model_floor.py` | X51 Floor Assembly  | Full `FloorModel`                             |
 
 ## CARBCOMN-specific parameters
 

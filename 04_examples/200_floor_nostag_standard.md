@@ -1,33 +1,33 @@
 # 200 — Floor, No Stagger, Standard Blocks
 
-**Session name:** `FloorNoStagStandardTest`  
+**Session name:** `FloorNoStagStandardTest`\
 **Folder:** `examples/workflows/testing_dem/200_floor_nostag_standard/`
 
 ## Goal
 
 A flat barrel-vault floor (**6 m × 7.5 m**) built from a regular grid of plain `StandardBlock` voussoirs with no stagger between columns. This is the first workflow to exercise the **full TNA → geometry → DEM chain** for a real floor geometry.
 
-![Floor No-Stagger 3D View](../assets/images/04_examples/002/Floor_3D.png)
+![Floor No-Stagger 3D View](../.gitbook/assets/Floor_3D.png)
 
 ## Concepts introduced
 
-- **TNA with `FloorFormDiagram`** — computing the equilibrium vault shape from plan dimensions and target rise, rather than prescribing geometry analytically
-- **`Pattern.from_barrelvault()`** — generating the combinatorial layout of radials and rings for a barrel vault
-- **`RefMesh`** — the output of TNA: equilibrium surface storing node positions and edge force densities
-- **`FlatBarrelTemplate`** — generating a rectangular voussoir grid fitted to the `RefMesh` surface, with flat block faces
-- **`stagger_type = "none"`** — all block joints are aligned across columns (no bonding)
-- **3D vault in a `BlockModel`** — assembling and solving a fully 3D vaulted floor geometry, as opposed to the 1D arch of example `100`
+* **TNA with `FloorFormDiagram`** — computing the equilibrium vault shape from plan dimensions and target rise, rather than prescribing geometry analytically
+* **`Pattern.from_barrelvault()`** — generating the combinatorial layout of radials and rings for a barrel vault
+* **`RefMesh`** — the output of TNA: equilibrium surface storing node positions and edge force densities
+* **`FlatBarrelTemplate`** — generating a rectangular voussoir grid fitted to the `RefMesh` surface, with flat block faces
+* **`stagger_type = "none"`** — all block joints are aligned across columns (no bonding)
+* **3D vault in a `BlockModel`** — assembling and solving a fully 3D vaulted floor geometry, as opposed to the 1D arch of example `100`
 
 ## Workflow steps
 
-| Script | Stage | Description |
-|--------|-------|-------------|
-| `200_init.py` | X00 Init | Session, floor dimensions (6 m × 7.5 m × 0.5 m rise), block counts, TNA resolution |
-| `210_tna.py` | X10 TNA | `Pattern` → `FloorFormDiagram` → `RefMesh` |
-| `220_geometry.py` | X20 Geometry | `FlatBarrelTemplate` with `stagger_type="none"` → block meshes |
-| `240_dem_model.py` | X40 DEM Model | `BlockModel`, `compute_contacts()` |
-| `241_dem_problem.py` | X41 DEM Problem | `MohrCoulomb`, LMGC90 |
-| `242_dem_viz.py` | X42 Visualisation | `DEMViewer`, contact force inspection |
+| Script               | Stage             | Description                                                                        |
+| -------------------- | ----------------- | ---------------------------------------------------------------------------------- |
+| `200_init.py`        | X00 Init          | Session, floor dimensions (6 m × 7.5 m × 0.5 m rise), block counts, TNA resolution |
+| `210_tna.py`         | X10 TNA           | `Pattern` → `FloorFormDiagram` → `RefMesh`                                         |
+| `220_geometry.py`    | X20 Geometry      | `FlatBarrelTemplate` with `stagger_type="none"` → block meshes                     |
+| `240_dem_model.py`   | X40 DEM Model     | `BlockModel`, `compute_contacts()`                                                 |
+| `241_dem_problem.py` | X41 DEM Problem   | `MohrCoulomb`, LMGC90                                                              |
+| `242_dem_viz.py`     | X42 Visualisation | `DEMViewer`, contact force inspection                                              |
 
 ## Key parameters (`200_init.py`)
 
@@ -59,5 +59,4 @@ After running `210_tna.py`, inspect the `RefMesh` in the viewer. The surface sho
 
 After running `241_dem_problem.py` and opening `242_dem_viz.py`, the contact force vectors should confirm that all forces are compressive and that the force flow follows the ribs of the vault.
 
-![Floor No-Stagger 3D Results Isometric](../assets/images/04_examples/002/Floor_Result_Iso.png)
-![Floor No-Stagger 3D Results Front](../assets/images/04_examples/002/Floor_Result_Front.png)
+![Floor No-Stagger 3D Results Isometric](../.gitbook/assets/Floor_Result_Iso.png) ![Floor No-Stagger 3D Results Front](../.gitbook/assets/Floor_Result_Front.png)
