@@ -6,8 +6,8 @@ This stage covers the structural analysis of block assemblies. Such systems are 
 
 Within this family, methods divide broadly into two branches:
 
-- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA)[^2], Coupled Rigid Block Analysis (CRA)[^3], the Piecewise Rigid Displacement (PRD)[^4] method, and Rigid Block Equilibrium (RBE)[^5].
-- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD)[^6] and the Distinct/Discrete Element Method (DEM)[^7].
+- **Static methods** solve for equilibrium or collapse states directly, typically as a mathematical optimisation problem. Representative methods include Thrust Network Analysis (TNA[^2]), Coupled Rigid Block Analysis (CRA[^3]), the Piecewise Rigid Displacement (PRD[^4]) method, and Rigid Block Equilibrium (RBE[^5]).
+- **Dynamic methods** integrate the equations of motion of the blocks forward in time, resolving contact forces at each step. The two main representatives are Contact Dynamics (CD[^6]) and the Distinct/Discrete Element Method (DEM[^7]).
 
 Within the CARBCOMN pipeline, DEM is the third and final computational stage. It takes the block geometry produced by TNA and geometry generation as input and answers the central structural question: **given the geometry and the loads, do equilibrium contact forces exist that satisfy the no-tension, friction-limited conditions?**
 
