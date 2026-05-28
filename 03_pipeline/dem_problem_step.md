@@ -46,23 +46,29 @@ The `MohrCoulomb` contact model encodes the friction constraints described in th
 
 Setting `c=0` and `phi=35°` represents a **dry joint** with moderate friction — appropriate for the CARBCOMN system where blocks are held in place by geometry and post-tension rather than mortar.
 
-## Support conditions
+## Support Conditions
 
-`problem.add_supports_from_model()` reads the `is_support` flag on each block element and fixes those blocks kinematically. Support blocks do not move and act as the fixed boundary conditions for the rest of the assembly.
+`problem.add_supports_from_model()` reads the `is_support` flag on each block and fixes those blocks kinematically. Support blocks do not move and act as fixed boundary conditions for the rest of the assembly.
 
-## Adding load cases
+## Adding Load Cases
 
 Beyond self-weight, the problem supports additional load cases:
 
 ```python
 # Prescribed support displacement (e.g. to find minimum/maximum thrust state)
-problem.add_support_displacement(support_index=0, displacement=[0.01, 0, 0])
+problem.add_support_displacement(block_index=0, displacement=[0.01, 0, 0])
+# Prescribe Rotation on a specified block [rad]
+problem.add_rotation(block_index=99, rotation = [0,0,0.5])
+# Point load on a specific block [N]
+problem.add_point_load(block_index=70, force=[0, 0, -145000])
 
-# Point load on a specific block
-problem.add_point_load(block_index=70, force=[0, 0, -145000])  # [N]
+# Point load with moment on a specific block [N] and [N·m]
+problem.add_point_load(block_index=30, moment=[0, 0, -10000])
 ```
 
-Support displacement load cases are used in example `100` (Arch) to drive the structure toward collapse and find the minimum/maximum thrust states.
+All vectors follow the global `[x, y, z]` convention.
+
+Support displacement load cases are used in example `100` (Arch) to drive the structure toward its collapse limit and find the minimum and maximum thrust states.
 
 ## Choosing a solver
 
@@ -81,7 +87,16 @@ solver = Solver.RBE()
 
 See [Solver Overview](../06_solvers/overview.md) for a full comparison.
 
-## Result data
+## Post-Processing of Results
+
+Post-processing happens inside COMPAS_DEM and is handled separately in each solver. Results are retrieved from the solver, unified into a common COMPAS data structure where they are stored on the model graph, and then visualised using the `DEMViewer`:
+
+```python
+from compas_dem.viewer import DEMViewer
+viewer = DEMViewer(problem.model)
+viewer.add_solution(scale=1.0)
+viewer.show()
+```
 
 After solving, results are stored on the model graph:
 
@@ -94,24 +109,17 @@ for u, v, contact in model.graph.edges(data=True):
     ft1 = contact["Ft1"]   # tangential force component 1 [N]
     ft2 = contact["Ft2"]   # tangential force component 2 [N]
 ```
-## Post-Processing of Results
-Post processing happens inside COMPAS_DEM, and it is set seperately in each solver. The results data is called back from the solver, then processed seperately into a compas unified data, where results are stored on the grapg, and visualised later with the compas dem command:
-
-```python
-from compas_dem.viewer import DEMViewer
-viewer = DEMViewer(problem.model)
-viewer.add_solution(scale=1.0)
-viewer.show()
-```
 
 ### Degenerate Contacts
 
-Contacts which lose one or more contact points during analysis are considered degenerate contacts, a face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts**. They appear in the `DEMViewer` under the `Degenerate_Contacts` group and are useful for diagnosing post-peak behavior, or hinging locations more clearly.
-In the current implementation, only dynamic solvers can have degenerate contacts.
+Contacts that lose one or more contact points during analysis are considered degenerate. A face contact can degenerate into an edge contact, or an edge contact can become a point contact. These cases are flagged as **degenerate contacts** and appear in the `DEMViewer` under the `Degenerate_Contacts` group, which is useful for diagnosing post-peak behavior or hinge locations.
+
+In the current implementation, only dynamic solvers can produce degenerate contacts.
 
 ### Accessing Data
 
-The block displacement data, can be accessed directly from the graph attributes:
+Block displacement and contact data can be accessed directly from the graph attributes:
+
 ```python
 graph = problem.model.graph
 for node in graph.nodes():
