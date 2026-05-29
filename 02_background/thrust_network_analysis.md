@@ -4,7 +4,7 @@
 
 **Thrust Network Analysis (TNA)** is a computational method for finding compression-only equilibrium solutions for three-dimensional funicular structures — vaults, shells, and gridshells. It extends the classical concept of the thrust line for arches to vaulted surfaces.
 
-TNA is the first computational stage of the CARBCOMN pipeline. It starts with a form diagram (Γ), support locations and a load distribution applied in the nodes of the network. TNA finds the three-dimensional thrust network geometry (G) through which forces can flow in compression under that load and enable to reshape/design the structure by modifying directly the force and magnitude of the forces.
+TNA is the first computational stage of the CARBCOMN pipeline. It starts with a form diagram (Γ), support locations and a load distribution applied in the nodes of the network. TNA finds the three-dimensional thrust network geometry (G) through which forces can flow in compression under that load and enable to reshape/design the structure by modifying directly the force and magnitude of the forces.[^1]
 
 <figure><img src="../.gitbook/assets/Screenshot 2026-05-28 at 18.50.03.png" alt=""><figcaption></figcaption></figure>
 
@@ -19,7 +19,7 @@ The duality between Γ and Γ\* is the geometric expression of equilibrium: for 
 
 ## Force densities
 
-Rather than working directly with forces, TNA parameterises equilibrium in terms of **force densities** — the ratio of the axial force in an edge to its projected length:
+Rather than working directly with forces, TNA parameterises equilibrium in terms of **force densities**[^2] — the ratio of the axial force in an edge to its projected length:
 
 $$q_{ij}  =  \frac{f_{ij}^{(h)}}{l_{ij}^{(h)}} = \frac{f_{ij}}{l_{ij}}$$
 
@@ -90,8 +90,12 @@ The `RefMesh` is the input to the geometry generation stage. It defines the **mi
 
 > **See also:** [Step 1 — TNA in the Pipeline Reference](../03_pipeline/tna_step.md)
 
-> **References:**
-
 ***
 
 ## References
+
+[^1]: Block, P. & Ochsendorf, J. (2007). Thrust network analysis: A new methodology for three-dimensional equilibrium. *Journal of the International Association for Shell and Spatial Structures*, 48(3), 167–173.
+
+[^2]: Schek, H.-J. (1974). The force density method for form finding and computation of general networks. *Computer Methods in Applied Mechanics and Engineering*, 3(1), 115–134.
+
+[^3]: Block, P. (2009). *Thrust Network Analysis: Exploring Three-Dimensional Equilibrium*. PhD thesis, Massachusetts Institute of Technology. https://dspace.mit.edu/handle/1721.1/49539

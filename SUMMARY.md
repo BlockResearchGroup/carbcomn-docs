@@ -11,8 +11,8 @@
 
 * [Structural System](02_background/structural_principles.md)
 * [Thrust Network Analysis (TNA)](02_background/thrust_network_analysis.md)
-* [Discrete Element Modeling (DEM)](02_background/discrete_element_modelling.md) 
-* [COMPAS Framework](02_background/compas_framework.md) (All)
+* [Discrete Element Modeling (DEM)](02_background/discrete_element_modelling.md)
+* [COMPAS Framework](02_background/compas_framework.md)
 * [CARBCOMN.core Architecture](02_background/carbcomn_core_architecture.md)
 
 ## Pipeline Reference
