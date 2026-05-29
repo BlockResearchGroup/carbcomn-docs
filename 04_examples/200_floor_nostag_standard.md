@@ -7,7 +7,7 @@
 
 A flat barrel-vault floor (**6 m × 7.5 m**) built from a regular grid of plain `StandardBlock` voussoirs with no stagger between columns. This is the first workflow to exercise the **full TNA → geometry → DEM chain** for a real floor geometry.
 
-![Floor No-Stagger 3D View](../.gitbook/assets/Floor_3D.png)
+![Standard floor vault without stagger (Example 200): flat-barrel vault assembled from StandardBlock elements, showing the complete TNA-to-DEM pipeline result](../.gitbook/assets/Floor_3D.png)
 
 ## Concepts introduced
 

@@ -4,7 +4,7 @@ The `carbcomn.core` pipeline transforms a set of high-level design parameters in
 
 ## Stages at a Glance
 
-![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/Pipeline.png)
+![The carbcomn.core three-stage computational pipeline: TNA form-finding → Block Geometry Generation → DEM Structural Analysis, managed by the WorkflowSession](../.gitbook/assets/Pipeline.png)
 
 ## Data Flow
 

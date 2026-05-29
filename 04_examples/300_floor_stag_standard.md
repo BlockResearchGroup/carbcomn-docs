@@ -7,7 +7,7 @@
 
 Same floor geometry as `200`, but with **running-bond stagger** between vault columns and the vault embedded in a surrounding structural frame of columns and tie-beams. This is the first workflow to use the full `FloorModel` assembly.
 
-![Floor Stagger 3D View](<../.gitbook/assets/Floor_3D (1).png>)
+![Standard floor vault with running-bond stagger (Example 300): block assembly including structural frame (columns and tie beams) modelled via the FloorModel](<../.gitbook/assets/Floor_3D (1).png>)
 
 ## Concepts introduced
 

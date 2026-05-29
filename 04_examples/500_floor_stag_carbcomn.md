@@ -7,7 +7,7 @@
 
 The most complete workflow in the current pipeline. It replaces the ridge voussoirs on selected columns with **`CarbcomnVoussoir` elements** — the project's signature block geometry, featuring an intrados slot and a post-tensioning cable channel. This workflow represents the **full CARBCOMN design pipeline** as currently implemented.
 
-![CARBCOMN Voussoir 3D View](../.gitbook/assets/Floor_Belly.png)
+![Full CARBCOMN voussoir geometry (Example 500): CarbcomnVoussoir elements with integrated post-tensioning channels and print-path-optimised block geometry](../.gitbook/assets/Floor_Belly.png)
 
 ## Concepts introduced
 

@@ -10,7 +10,7 @@ The CARBCOMN floor system is generated through a parametric pipeline which integ
 
 ### 1 — Hierarchical Parametric Logic
 
-![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/hierarchicalparametriclogic.png)
+![Hierarchical parametric logic spanning building, floor, and block levels — top-level decisions propagate downward to constrain all downstream elements](../.gitbook/assets/hierarchicalparametriclogic.png)
 
 The system is parameterised across **building**, **floor**, and **block** levels so that top-level decisions (e.g., grid layout and vault typology) propagate downward and constrain all downstream elements. A change to the floor span at the building level automatically conditions the TNA form-finding, the block count and dimensions at the floor level, and the individual voussoir geometry at the block level.
 
@@ -27,7 +27,7 @@ The relationhips between different hierarchies of elements constraints the floor
 
 ### 2 — Multi-resolution Representations
 
-![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/multiresolution.png)
+![Multi-resolution model: lightweight parametric representations during design exploration expand to high-resolution geometry (typed structural elements) for analysis and export on demand](../.gitbook/assets/multiresolution.png)
 
 Elements are handled through **lightweight abstractions** (graphs, coarse meshes, parametric blueprints) during design exploration, and **explicit high-resolution geometry** (dense meshes, typed structural elements) for analysis and export. The parametric definition and topology are stored as the minimum representation; all richer geometry is derived on demand.
 

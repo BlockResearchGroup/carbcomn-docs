@@ -12,7 +12,9 @@ This step is only present in workflows that use typed elements (examples `400` a
 
 ## The RefBlock intermediate
 
-A `RefBlock` is an intermediate data structure that wraps a block mesh together with its **reference frame** and **position in the vault grid** (column index, row index). It decouples the geometry from the element type: the same `RefBlock` can be instantiated as any element type.
+A `RefBlock` is an intermediate data structure that wraps a block mesh together with its **reference frame** and **position in the vault grid** (column index, row index). It decouples the geometry from the element type: the same `RefBlock` can be instantiated as any element type. The `RefBlock`enables the exploration of various Voussoir geometries in a normalised parametric space.
+
+![The RefBlock: a parametric wrapper linking block mesh geometry and vault grid position, decoupling geometry from element type](../.gitbook/assets/Refblock.png)
 
 ```python
 from carbcomn.datastructures.refblock import RefBlock

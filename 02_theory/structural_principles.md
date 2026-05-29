@@ -24,7 +24,7 @@ The **fabrication advantages are equally significant**. Extrusion-based 3D concr
 
 ### Demonstrations: Striatus and Striatus 2.0 Phoenix
 
-![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/striatusphoenix.png)
+![Striatus (Venice, 2021) and Striatus 2.0 Phoenix (2024) — full-scale pedestrian bridges built from 3D-printed, unreinforced, dry-jointed concrete blocks by Block Research Group and Zaha Hadid Architects](../.gitbook/assets/striatusphoenix.png)
 
 These principles have been demonstrated at full structural scale in two pedestrian bridge projects by the Block Research Group at ETH Zurich and Zaha Hadid Architects:
 
@@ -36,7 +36,7 @@ Both projects exemplify the *strength through geometry* motto that underlies the
 
 ## The CARBCOMN floor system
 
-![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/structuralsystem_w.png)
+![The CARBCOMN floor system: vaulted assembly of dry-jointed voussoir blocks post-tensioned with Fe-SMA bars, delivering a flat usable floor surface through compression-dominant geometry](../.gitbook/assets/structuralsystem_w.png)
 
 The CARBCOMN floor system brings this structural logic into the context of a floor plate. It consists of a **vaulted floor composed of prefabricated voussoir blocks** assembled dry and post-tensioned with Fe-SMA (iron-based shape-memory alloy) bars. Three features distinguish it from conventional masonry:
 

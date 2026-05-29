@@ -7,7 +7,7 @@
 
 Extends workflow `300` by replacing `StandardBlock` elements on selected vault columns with **`RidgeVoussoir` elements** — blocks that have a physical ridge feature along the intrados face. This introduces typed element differentiation within the same vault grid.
 
-![Floor Ridge 3D View](../.gitbook/assets/Floor_RIDGE.png)
+![Floor vault with running-bond stagger and RidgeVoussoir elements (Example 400): mixed element types with purpose-designed ridge blocks at the vault crown](../.gitbook/assets/Floor_RIDGE.png)
 
 ## Concepts introduced
 
