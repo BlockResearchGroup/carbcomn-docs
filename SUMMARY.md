@@ -1,4 +1,4 @@
-# Table of contents
+# Table of Contents
 
 ## Introduction
 
@@ -11,11 +11,11 @@
 
 * [Structural System](02_theory/structural_principles.md)
 * [Thrust Network Analysis (TNA)](02_theory/thrust_network_analysis.md)
-* [Discrete Element Modeling (DEM)](02_theory/discrete_element_modelling.md)
-* [COMPAS Framework](02_theory/compas_framework.md)
+* [Discrete Element Modeling (DEM)](02_theory/discrete_element_modelling.md) 
+* [COMPAS Framework](02_theory/compas_framework.md) (All)
 * [CARBCOMN.core Architecture](02_theory/carbcomn_core_architecture.md)
 
-## Pipeline Reference (Review and Images)
+## Pipeline Reference
 
 * [Pipeline Architecture](03_pipeline/overview.md)
 * [Session & Parameter Management](03_pipeline/session.md)
@@ -36,10 +36,18 @@
 * [400 — Floor, Running Stagger, Ridge Voussoirs](04_examples/400_floor_stag_ridge.md)
 * [500 — Floor, Running Stagger, CARBCOMN Voussoirs](04_examples/500_floor_stag_carbcomn.md)
 
+## API Reference
+
+* [API Overview](05_api/overview.md)
+* [Session](05_api/session.md)
+* [Data Structures](05_api/datastructures.md)
+* [Model Elements](05_api/model_elements.md)
+* [Templates](05_api/templates.md)
+
 ## Solvers
 
 * [Solver Overview](06_solvers/overview.md)
-* [Solver Comparison](06_solvers/solver_comparison.md)
+* [Solver Comparison](06_solvers/solver_comparison.md) 
 
 ## Appendix
 

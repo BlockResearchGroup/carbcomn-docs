@@ -10,7 +10,7 @@
 
 ## What is CARBCOMN?
 
-CARBCOMN is an EU Horizon Pathfinder Challenge project developing a novel floor system based on **carbon-fibre reinforced masonry voussoirs**. The system combines the compressive efficiency of traditional vaulted masonry construction with the tensile capacity of post-tensioned carbon-fibre cables, producing a flat floor system that is structurally efficient, materially lean, and fully demountable.
+CARBCOMN (*CARBon-negative COMpression domNant structures for decarbonized and deconstructable concrete buildings*) is an EU Horizon Europe EIC Pathfinder Challenge project developing a novel floor system based on **compression-dominant unreinforced concrete masonry voussoirs**. The system combines funicular form-finding, carbon-negative 3D-printed concrete blocks, and Fe-SMA (iron-based shape-memory alloy) post-tensioning to produce a flat floor system that is structurally efficient, materially lean, and fully demountable.
 
 The project brings together partners from across Europe, combining expertise in structural engineering, material science, digital fabrication, and architecture.
 

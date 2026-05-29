@@ -36,6 +36,8 @@ The **Block Research Group (BRG) at ETH Zurich** leads the structural design and
 
 ## CARBCOMN.core in the project ecosystem
 
+![CARBCOMN.core data model](../.gitbook/assets/SBM-04.png)
+
 The CARBCOMN project involves academic and industry partners developing an integrated pipeline across several disciplines. Computationally, this pipeline is organised into distinct but interoperable workflows, all of which share a common data model:
 
 | Workflow | Description |

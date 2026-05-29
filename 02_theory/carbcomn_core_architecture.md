@@ -4,15 +4,13 @@
 
 The CARBCOMN.core digital framework is an end-to-end computational pipeline linking design intent to prefabricated discrete components for unreinforced masonry structures. Building on BRG workflows ,and implemented in COMPAS, the framework provides an object-based, software-agnostic data backbone enabling multi-resolution derivations and traceability across multiple domains of advanced construction projects, including structural design and optimisation, fabrication, LCA and architectural design.
 
-> **Reference:** <!-- [REF: author_year] Add paper reference for this section -->
-
-<!-- [IMAGE PLACEHOLDER: End-to-end pipeline diagram — from design intent to prefabricated components] -->
-
 ## Core Principles
 
 The CARBCOMN floor system is generated through a parametric pipeline which integrates form-finding feedback, discerete element modelling into a parametric system. The main principles of this infrastructure are:
 
 ### 1 — Hierarchical Parametric Logic
+
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/hierarchicalparametriclogic.png)
 
 The system is parameterised across **building**, **floor**, and **block** levels so that top-level decisions (e.g., grid layout and vault typology) propagate downward and constrain all downstream elements. A change to the floor span at the building level automatically conditions the TNA form-finding, the block count and dimensions at the floor level, and the individual voussoir geometry at the block level.
 
@@ -28,6 +26,8 @@ params = {
 The relationhips between different hierarchies of elements constraints the floor system design and creates a relationship between them elements.
 
 ### 2 — Multi-resolution Representations
+
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/multiresolution.png)
 
 Elements are handled through **lightweight abstractions** (graphs, coarse meshes, parametric blueprints) during design exploration, and **explicit high-resolution geometry** (dense meshes, typed structural elements) for analysis and export. The parametric definition and topology are stored as the minimum representation; all richer geometry is derived on demand.
 
@@ -141,7 +141,5 @@ For each design variant, the pipeline produces:
 - **Fabrication feasibility indicators** — referenced within fabrication-ready element definitions
 
 Together, these inputs and outputs define the pipeline content while allowing integration of additional domain data (e.g., LCA metrics or monitoring streams) through COMPAS JSON serialisation.
-
-> **Reference:** <!-- [REF: author_year] Add paper reference for this section -->
 
 > **See also:** [Pipeline Architecture](../03_pipeline/overview.md), [COMPAS Framework](compas_framework.md)

@@ -24,6 +24,8 @@ The **fabrication advantages are equally significant**. Extrusion-based 3D concr
 
 ### Demonstrations: Striatus and Striatus 2.0 Phoenix
 
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/striatusphoenix.png)
+
 These principles have been demonstrated at full structural scale in two pedestrian bridge projects by the Block Research Group at ETH Zurich and Zaha Hadid Architects:
 
 **Striatus** (Venice, 2021) is a 16 m-span arch bridge built entirely from 3D-concrete-printed, unreinforced blocks assembled without mechanical connections or adhesives — dry-jointed and held in place solely by geometry and gravity. The blocks were printed with layer orientations aligned to the principal compression trajectories, ensuring that forces flow perpendicular to the printed layers throughout the structure. The design demonstrates that horizontally-spanning structural elements, including pedestrian bridges, can be realised from 3D-printed concrete without reinforcement or bending resistance, provided the geometry is properly funicular[^2].
@@ -33,6 +35,8 @@ These principles have been demonstrated at full structural scale in two pedestri
 Both projects exemplify the *strength through geometry* motto that underlies the CARBCOMN structural design philosophy: by aligning structural form with material behaviour, efficient structures can be built with less material, no embedded reinforcement, and full reversibility at end of life.
 
 ## The CARBCOMN floor system
+
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/structuralsystem_w.png)
 
 The CARBCOMN floor system brings this structural logic into the context of a floor plate. It consists of a **vaulted floor composed of prefabricated voussoir blocks** assembled dry and post-tensioned with Fe-SMA (iron-based shape-memory alloy) bars. Three features distinguish it from conventional masonry:
 

@@ -4,7 +4,7 @@
 
 **COMPAS** is an open-source computational framework for research in architecture, engineering, and fabrication, developed at the Block Research Group (BRG) at ETH Zurich and collaborating institutions[^1]. It provides a software-agnostic, Python-based data backbone for geometric computation, data structures, and numerical methods, with interfaces to a wide range of external tools and solvers.
 
-<!-- [IMAGE PLACEHOLDER: COMPAS ecosystem diagram — core + extension packages] -->
+![Element type hierarchy — from raw mesh to typed structural elements](../.gitbook/assets/compasframework.png)
 
 ## Why CARBCOMN uses COMPAS
 
