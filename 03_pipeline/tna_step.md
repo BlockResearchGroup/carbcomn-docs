@@ -87,7 +87,7 @@ form.update_equilibrium(zmax=zmax)   # zmax constrains the vault rise
 refmesh = form.to_refmesh()
 ```
 
-`update_equilibrium()` solves the vertical equilibrium linear system described in the [TNA Theory section](../02_theory/thrust_network_analysis.md) and stores the resulting node heights. `to_refmesh()` assembles the `RefMesh` from the equilibrium positions and force density values.
+`update_equilibrium()` solves the vertical equilibrium linear system described in the [TNA Theory section](../02_background/thrust_network_analysis.md) and stores the resulting node heights. `to_refmesh()` assembles the `RefMesh` from the equilibrium positions and force density values.
 
 ### 5. Export to session
 
@@ -112,4 +112,4 @@ These are used by the geometry template in the next step to orient voussoir cuts
 
 <!-- [IMAGE PLACEHOLDER: RefMesh rendered in viewer — show thrust surface coloured by force density] -->
 
-> **See also:** [TNA Theory](../02_theory/thrust_network_analysis.md), [Example 200](../04_examples/200_floor_nostag_standard.md)
+> **See also:** [TNA Theory](../02_background/thrust_network_analysis.md), [Example 200](../04_examples/200_floor_nostag_standard.md)

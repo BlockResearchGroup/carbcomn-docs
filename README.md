@@ -28,7 +28,7 @@ This documentation describes **`carbcomn.core`**, the core Python library implem
 
 | Section                                             | Contents                                                                                                          |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| [Theory](02_theory/structural_principles.md)        | Structural principles behind compression-dominant floor systems, Thrust Network Analysis, Discrete Element Method |
+| [Background](02_background/structural_principles.md)        | Structural principles behind compression-dominant floor systems, Thrust Network Analysis, Discrete Element Method |
 | [Pipeline Reference](03_pipeline/overview.md)       | Step-by-step description of the full TNA → Geometry → DEM pipeline                                                |
 | [Examples](04_examples/overview.md)                 | Six worked examples of increasing complexity, from a simple three-block test to the full CARBCOMN floor           |
 | [API Reference](05_api/overview.md) | Documentation of all classes and functions in `carbcomn.core`                                                     |
@@ -37,7 +37,7 @@ This documentation describes **`carbcomn.core`**, the core Python library implem
 
 ## How to read this documentation
 
-If you are new to the project, we recommend starting with the [Theory](02_theory/structural_principles.md) section to build familiarity with the structural concepts, then reading the [Pipeline Reference](03_pipeline/overview.md) before working through the [Examples](04_examples/overview.md) in order.
+If you are new to the project, we recommend starting with the [Theory](02_background/structural_principles.md) section to build familiarity with the structural concepts, then reading the [Pipeline Reference](03_pipeline/overview.md) before working through the [Examples](04_examples/overview.md) in order.
 
 If you are already familiar with TNA and DEM analysis, you can go directly to the [Pipeline Reference](03_pipeline/overview.md) or to a specific example.
 

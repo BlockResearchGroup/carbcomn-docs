@@ -68,4 +68,4 @@ In the viewer, support blocks are shown in red and non-support blocks in light g
 
 Each block has an `is_support` attribute that flags it as a boundary condition. Support blocks are held fixed during analysis; the flag is carried through into the problem definition automatically.
 
-> **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_theory/discrete_element_modelling.md)
+> **See also:** [Step 5 — DEM Problem & Solvers](dem_problem_step.md), [DEM Theory](../02_background/discrete_element_modelling.md)

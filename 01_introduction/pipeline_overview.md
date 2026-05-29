@@ -34,4 +34,4 @@ Not every workflow uses every stage. The simpler examples (three-block test, arc
 
 
 
-> **See also:** [Pipeline Reference](../03_pipeline/overview.md) for a detailed description of each stage, and [Theory](../02_theory/structural_principles.md) for the structural background.
+> **See also:** [Pipeline Reference](../03_pipeline/overview.md) for a detailed description of each stage, and [Theory](../02_background/structural_principles.md) for the structural background.

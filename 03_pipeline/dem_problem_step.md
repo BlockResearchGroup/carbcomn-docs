@@ -37,7 +37,7 @@ session.sync()
 
 ## The contact model
 
-The `MohrCoulomb` contact model encodes the friction constraints described in the [DEM Theory section](../02_theory/discrete_element_modelling.md):
+The `MohrCoulomb` contact model encodes the friction constraints described in the [DEM Theory section](../02_background/discrete_element_modelling.md):
 
 | Parameter | Description               | Typical value                             |
 | --------- | ------------------------- | ----------------------------------------- |
@@ -131,4 +131,4 @@ for edge in graph.edges():
     print(f"Edge {edge} gap: {gap}, force magnitude: {magnitude}")
 ```
 
-> **See also:** \[Step 6 — DEM Visualisation is handled in example pages], [Solver Overview](../06_solvers/overview.md), [DEM Theory](../02_theory/discrete_element_modelling.md)
+> **See also:** \[Step 6 — DEM Visualisation is handled in example pages], [Solver Overview](../06_solvers/overview.md), [DEM Theory](../02_background/discrete_element_modelling.md)
