@@ -61,8 +61,7 @@ for contact in model.contacts():
 
 In the viewer, support blocks are shown in red and non-support blocks in light grey. Contact polygons are shown in cyan. The contact graph edges are shown as magenta lines connecting block centroids.
 
-![DEM Contact Graph and Polygons](../assets/images/03_pipeline/dem_contact_polygons_graph.png)
-
+![DEM Contact Graph and Polygons](../.gitbook/assets/dem_contact_polygons_graph.png)
 
 ## Supports
 

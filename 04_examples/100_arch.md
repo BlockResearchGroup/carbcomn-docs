@@ -75,6 +75,6 @@ Running `141` and `142` with two different solvers and comparing their contact f
 
 Running `144` and `145` (max/min thrust) shows the arch approaching its geometric limits: at minimum thrust the arch is about to open at the crown and haunches; at maximum thrust it is about to slide at the supports. These correspond to the classical failure mechanisms of masonry arches described by Heyman (1966).
 
-<figure><img src="../assets/images/04_examples/001/Arch_Results_Iso.png" alt="Arch 3D Results Iso"></figure>
+<figure><img src="../.gitbook/assets/Arch_Results_Iso (1).png" alt="Arch 3D Results Iso"><figcaption></figcaption></figure>
 
-<figure><img src="../assets/images/04_examples/001/Arch_Results_Front.png" alt="Arch 3D Results Front"></figure>
+<figure><img src="../.gitbook/assets/Arch_Results_Front (1).png" alt="Arch 3D Results Front"><figcaption></figcaption></figure>
