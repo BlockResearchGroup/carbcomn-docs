@@ -2,7 +2,7 @@
 
 ## What is COMPAS?
 
-**COMPAS** is an open-source computational framework for research in architecture, engineering, and fabrication, developed at the Block Research Group (BRG) at ETH Zurich and collaborating institutions[^1]. It provides a software-agnostic, Python-based data backbone for geometric computation, data structures, and numerical methods, with interfaces to a wide range of external tools and solvers.
+**COMPAS** is an open-source computational framework for research in architecture, engineering, and fabrication, developed at the Block Research Group (BRG) at ETH Zurich and collaborating institutions.<sup>[1]</sup> It provides a software-agnostic, Python-based data backbone for geometric computation, data structures, and numerical methods, with interfaces to a wide range of external tools and solvers.
 
 ![The COMPAS open-source framework and its ecosystem software suites it interacts with](../.gitbook/assets/compasframework.png)
 
@@ -42,7 +42,7 @@ The minimum stored representation at any level comprises:
 2. An interface connectivity graph (adjacency)
 3. A hierarchy tree encoding containment and dependencies
 
-This design allows lightweight representations to be used during design exploration, with high-resolution geometry computed only when needed for analysis or export[^2].
+This design allows lightweight representations to be used during design exploration, with high-resolution geometry computed only when needed for analysis or export.<sup>[2]</sup>
 
 ## COMPAS JSON serialisation
 
@@ -52,5 +52,9 @@ This is the mechanism behind the `WorkflowSession`: when `session.sync()` is cal
 
 > **See also:** [Session & Parameter Management](../03_pipeline/session.md)
 
-[^1]: Van Mele, T., Liew, A., Méndez Echenagucia, T., Dell'Endice, A., Pastrana, R., Doménech-Rodríguez, C., Huang, S., Paulson, N., Ranaudo, F., Joris, I., Carneau, P., Bürgin, T., Ongaro, G., Cagan, D., & Iszatt, J. (2022). *COMPAS: A framework for computational research in architecture and structures*. ETH Zürich. https://doi.org/10.5281/zenodo.7317703
-[^2]: Van Mele, T. et al. (2023). *compas_model: A hierarchical data model for assemblies and structures*. Block Research Group, ETH Zürich. https://github.com/BlockResearchGroup/compas_model
+***
+
+## References
+
+1. Van Mele, T., Liew, A., Méndez Echenagucia, T., Dell'Endice, A., Pastrana, R., Doménech-Rodríguez, C., Huang, S., Paulson, N., Ranaudo, F., Joris, I., Carneau, P., Bürgin, T., Ongaro, G., Cagan, D., & Iszatt, J. (2022). *COMPAS: A framework for computational research in architecture and structures*. ETH Zürich. https://doi.org/10.5281/zenodo.7317703
+2. Van Mele, T. et al. (2023). *compas_model: A hierarchical data model for assemblies and structures*. Block Research Group, ETH Zürich. https://github.com/BlockResearchGroup/compas_model

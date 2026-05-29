@@ -73,7 +73,7 @@ CARBCOMN targets a major conceptual shift in how concrete load-bearing structure
 
 The Fe-SMA post-tensioning system provides system-level prestress and robustness without embedded reinforcement: bars are tensioned by resistive heating ("self-prestressing"), and their high ductility (failure strain > 30%) contributes to structural robustness under horizontal actions including seismic loading.
 
-The system is designed from the outset for **circularity**: dry-joint blocks without bonded reinforcement can be disassembled, inspected, and reused, with a target service life enabling at least two reuse cycles (≥ 150 years total)[^1].
+The system is designed from the outset for **circularity**: dry-joint blocks without bonded reinforcement can be disassembled, inspected, and reused, with a target service life enabling at least two reuse cycles (≥ 150 years total).<sup>[1]</sup>
 
 ## Current Status and Open-Source Release
 
@@ -81,4 +81,8 @@ The `carbcomn.core` repository is currently **private** and under active develop
 
 > **See also:** [Scope and Disclaimer](scope_and_disclaimer.md) for a discussion of the pipeline's role in the broader research context.
 
-[^1]: Van Tittelboom, K., & Matthys, S. (Eds.) (2025). *Green Paper on Compression Dominant Carbon Curing Concrete Structures*. CARBCOMN Consortium. https://doi.org/10.5281/zenodo.17277986
+***
+
+## References
+
+1. Van Tittelboom, K., & Matthys, S. (Eds.) (2025). *Green Paper on Compression Dominant Carbon Curing Concrete Structures*. CARBCOMN Consortium. https://doi.org/10.5281/zenodo.17277986
