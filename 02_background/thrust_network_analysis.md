@@ -88,8 +88,6 @@ The `RefMesh` is the input to the geometry generation stage. It defines the **mi
 | Solve vertical equilibrium | $$\mathbf{C}_f^T \mathbf{Q} \mathbf{C}_f \, \mathbf{z}_f = \mathbf{p}_z$$ | Node heights $$\mathbf{z}_f$$          |
 | Build RefMesh              | Assemble mesh from equilibrium positions                                  | `RefMesh` object                       |
 
-> **See also:** [Step 1 — TNA in the Pipeline Reference](../03_pipeline/tna_step.md)
-
 ***
 
 ## References
@@ -99,3 +97,6 @@ The `RefMesh` is the input to the geometry generation stage. It defines the **mi
 [^2]: Schek, H.-J. (1974). The force density method for form finding and computation of general networks. *Computer Methods in Applied Mechanics and Engineering*, 3(1), 115–134.
 
 [^3]: Block, P. (2009). *Thrust Network Analysis: Exploring Three-Dimensional Equilibrium*. PhD thesis, Massachusetts Institute of Technology. https://dspace.mit.edu/handle/1721.1/49539
+
+> **See also:** [Step 1 — TNA in the Pipeline Reference](../03_pipeline/tna_step.md)
+
